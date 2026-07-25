@@ -33,7 +33,7 @@ export const business = {
   cloudflareAnalyticsToken: 'd421129ab57f44a0bb5109c53dda2e4d',
   // Google Search Console verification token (the content of the
   // google-site-verification meta tag). Leave empty to disable.
-  googleSiteVerification: '',
+  googleSiteVerification: 'lIEp-5fSF1JYP7CZRtloxxpVDiEQmqvAJbbgGV247SM',
   // Not published yet. Placeholders for the owner to supply: testimonials and
   // social/professional profiles (sameAs). Nothing invented.
   sameAs: [] as string[],

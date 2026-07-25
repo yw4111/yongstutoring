@@ -27,7 +27,7 @@ export const business = {
   // Contact form endpoint. Submissions email the address above once a free
   // Formspree form is created at formspree.io and its ID pasted here.
   // TODO: replace YOUR_FORM_ID with the real Formspree form ID.
-  formEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
+  formEndpoint: 'https://formspree.io/f/xjgnpzbj',
   // Analytics: paste the Cloudflare Web Analytics beacon token here to switch on
   // the traffic dashboard. Leave empty to disable (no script loads).
   cloudflareAnalyticsToken: '',

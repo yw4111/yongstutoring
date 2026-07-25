@@ -1,0 +1,82 @@
+---
+import type { Subject } from '../data/subjects';
+import { business } from '../data/business';
+import { withBase } from '../lib/paths';
+
+interface Props {
+  subject: Subject;
+}
+
+const { subject } = Astro.props;
+const { currencySymbol } = business.rates;
+---
+
+<a class="service-card" href={withBase(`/subjects/${subject.slug}/`)}>
+  <div class="service-card__head">
+    <span class="service-card__ref">{subject.level}</span>
+    <span class="stamp">{currencySymbol}{subject.rate}/hr</span>
+  </div>
+  <h3 class="service-card__title">{subject.name}</h3>
+  <p class="service-card__summary">{subject.summary}</p>
+  <span class="service-card__cta" aria-hidden="true">View subject &rarr;</span>
+</a>
+
+<style>
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1.5px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    height: 100%;
+  }
+
+  .service-card:hover {
+    border-color: var(--petrol);
+    transform: translateY(-2px);
+  }
+
+  .service-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .service-card__ref {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .service-card__title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-card__summary {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .service-card__cta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--petrol);
+    font-weight: 700;
+  }
+
+  .service-card:hover .service-card__cta {
+    color: var(--amber);
+  }
+</style>

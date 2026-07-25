@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqBlock from '../../components/FaqBlock.astro';
+import { business } from '../../data/business';
+import { subjects } from '../../data/subjects';
+import { getTutor } from '../../data/tutors';
+import { subjectServiceSchema, faqSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+export function getStaticPaths() {
+  return subjects.map((subject) => ({ params: { slug: subject.slug }, props: { subject } }));
+}
+
+const { subject } = Astro.props;
+const { currencySymbol } = business.rates;
+const tutorsForSubject = subject.tutorSlugs.map((s) => getTutor(s)).filter(Boolean);
+const related = subjects.filter((s) => s.slug !== subject.slug);
+const schema = [subjectServiceSchema(subject), faqSchema(subject.faqs)];
+---
+
+<BaseLayout
+  title={`${subject.name} | Yong's Tutoring`}
+  description={subject.directAnswer}
+  path={`/subjects/${subject.slug}/`}
+  schema={schema}
+>
+  <section class="section section--petrol">
+    <div class="wrap">
+      <p class="breadcrumb">
+        <a href={withBase('/subjects/')}>Subjects</a> <span aria-hidden="true">/</span>
+        {subject.shortName}
+      </p>
+      <span class="eyebrow">{subject.level} &middot; {subject.subject}</span>
+      <h1>{subject.name}</h1>
+      <p class="lede" style="color: var(--stone);">{subject.directAnswer}</p>
+      <div class="subject-actions">
+        <a class="btn btn--primary" href={business.whatsappHref}>Book a lesson</a>
+        <a class="btn btn--ghost" href={`mailto:${business.email}`}>Email Yong</a>
+        <span class="rate-stamp">{currencySymbol}{subject.rate}/hour</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--stone">
+    <div class="wrap subject-body">
+      <div class="subject-main">
+        {subject.detail.map((p) => <p>{p}</p>)}
+
+        <h2>What we cover</h2>
+        <ul class="ticklist">
+          {subject.covered.map((w) => <li>{w}</li>)}
+        </ul>
+      </div>
+
+      <aside class="subject-side">
+        <div class="schedule">
+          <div class="schedule__head">
+            <span>{subject.shortName}</span>
+            <span>Summary</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Level</span>
+            <span class="schedule__value">{subject.level}</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Rate</span>
+            <span class="schedule__value">{currencySymbol}{subject.rate}/hour</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Format</span>
+            <span class="schedule__value">One to one, online</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Exam boards</span>
+            <span class="schedule__value">All</span>
+          </div>
+          {
+            tutorsForSubject.map((t) => (
+              <div class="schedule__row">
+                <span class="schedule__label">Tutor</span>
+                <span class="schedule__value">{t!.name}</span>
+              </div>
+            ))
+          }
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="wrap subject-faq">
+      <span class="eyebrow">Answers</span>
+      <FaqBlock faqs={subject.faqs} heading={`${subject.name} questions`} level="h2" />
+    </div>
+  </section>
+
+  <section class="section section--stone">
+    <div class="wrap">
+      <h2>Other subjects</h2>
+      <ul class="related-list">
+        {
+          related.map((r) => (
+            <li>
+              <a href={withBase(`/subjects/${r.slug}/`)}>
+                {r.name} <span aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-bottom: 0.75rem;
+  }
+
+  .breadcrumb a {
+    color: var(--stone);
+  }
+
+  .subject-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .rate-stamp {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--amber);
+    border: 1.5px solid var(--amber);
+    border-radius: var(--radius);
+    padding: 0.4rem 0.7rem;
+  }
+
+  .subject-body {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 46rem) {
+    .subject-body {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+
+  .subject-main p {
+    max-width: 46rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .subject-main h2 {
+    margin-top: 2rem;
+  }
+
+  .subject-faq {
+    max-width: 52rem;
+  }
+
+  .related-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .related-list a {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--petrol);
+    text-decoration: none;
+  }
+
+  .related-list a:hover {
+    color: var(--amber);
+  }
+</style>

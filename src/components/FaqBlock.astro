@@ -1,0 +1,56 @@
+---
+import type { Faq } from '../data/faqs';
+
+interface Props {
+  faqs: Faq[];
+  heading?: string;
+  /** Heading level for each question, keeps the page hierarchy correct */
+  level?: 'h2' | 'h3';
+}
+
+const { faqs, heading = 'Common questions', level = 'h3' } = Astro.props;
+const Q = level;
+---
+
+<div class="faq">
+  {heading && <h2 class="faq__heading">{heading}</h2>}
+  <dl class="faq__list">
+    {
+      faqs.map((f) => (
+        <div class="faq__item">
+          <dt>
+            <Q class="faq__q">{f.question}</Q>
+          </dt>
+          <dd class="faq__a">{f.answer}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</div>
+
+<style>
+  .faq__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .faq__list {
+    margin: 0;
+    border-top: 1.5px solid var(--hairline);
+  }
+
+  .faq__item {
+    border-bottom: 1.5px solid var(--hairline);
+    padding-block: 1.1rem;
+  }
+
+  .faq__q {
+    margin: 0 0 0.35rem;
+    font-size: 1.1rem;
+  }
+
+  .faq__a {
+    margin: 0;
+    color: var(--muted);
+    max-width: 52rem;
+  }
+</style>

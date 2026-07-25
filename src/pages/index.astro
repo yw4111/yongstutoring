@@ -1,0 +1,380 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Placeholder from '../components/Placeholder.astro';
+import FaqBlock from '../components/FaqBlock.astro';
+import { business } from '../data/business';
+import { subjects } from '../data/subjects';
+import { tutors, leadTutor } from '../data/tutors';
+import { posts } from '../data/posts';
+import { homeFaqs } from '../data/faqs';
+import { faqSchema } from '../lib/schema';
+import { withBase } from '../lib/paths';
+
+const schema = [faqSchema(homeFaqs)];
+const { currencySymbol } = business.rates;
+const recentPosts = [...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
+
+const tiers = [
+  {
+    name: 'GCSE',
+    subtitle: 'Maths and Economics, all exam boards',
+    price: `${currencySymbol}${business.rates.gcse}`,
+    features: ['One to one, online', 'Tailored to your exam board', 'Topic teaching and past papers', 'Foundation and higher tier'],
+  },
+  {
+    name: 'A-level',
+    subtitle: 'Maths and Economics, all exam boards',
+    price: `${currencySymbol}${business.rates.alevel}`,
+    featured: true,
+    features: ['One to one, online', 'Pure, statistics, mechanics and economics', 'Essay and exam technique', 'Past paper practice'],
+  },
+];
+---
+
+<BaseLayout
+  title="Yong's Tutoring | Online GCSE and A-level maths and economics"
+  description="Online one to one maths and economics tutoring for GCSE and A-level, across all exam boards. GCSE £40/hr, A-level £45/hr. Taught by an Imperial College student with A*AAA."
+  path="/"
+  schema={schema}
+>
+  <!-- HERO -->
+  <section class="section hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Online tutoring &middot; GCSE &amp; A-level maths and economics</p>
+        <h1>Grades that open doors. One to one, online.</h1>
+        <p class="hero-sub">
+          Yong's Tutoring pairs you with a dedicated subject specialist for GCSE
+          and A-level maths, science and economics, building real understanding
+          and exam technique, not just cramming.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href={withBase('/contact/')}>Book a free consultation</a>
+          <a class="btn btn--ghost" href={withBase('/pricing/')}>View subjects &amp; pricing</a>
+        </div>
+      </div>
+      <Placeholder ratio="5 / 6" label="Photo of tutor / online session" class="hero-photo" />
+    </div>
+    <div class="wrap hero-stats">
+      <div><span class="hero-stats__n">{currencySymbol}{business.rates.gcse}/hr</span><span class="hero-stats__l">Lessons from</span></div>
+      <div><span class="hero-stats__n">Cambridge &amp; Imperial</span><span class="hero-stats__l">Where our tutors study</span></div>
+      <div><span class="hero-stats__n">1 to 1</span><span class="hero-stats__l">Online, all exam boards</span></div>
+    </div>
+  </section>
+
+  <!-- MEET THE TUTORS -->
+  <section class="section section--stone" id="about">
+    <div class="wrap">
+      <div class="section-head" style="text-align:left; margin-inline:0; max-width:38rem;">
+        <p class="eyebrow">The team</p>
+        <h2>Meet the tutors</h2>
+        <p class="lede muted">
+          One to one, online, matched to your subject and level. We are a small,
+          hand picked team, so ask if you would like a particular subject or time.
+        </p>
+      </div>
+      <div class="tutors-preview">
+        {
+          tutors.map((t) => (
+            <a class="tprev" href={withBase(`/tutors/${t.slug}/`)}>
+              <Placeholder ratio="1 / 1" label={`Photo of ${t.name}`} class="tprev__photo" />
+              <div>
+                <span class="tprev__name">{t.name}</span>
+                <span class="tprev__role">{t.role}</span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+      <p class="tutors-more"><a class="btn btn--ghost" href={withBase('/tutors/')}>Meet the team</a></p>
+    </div>
+  </section>
+
+  <!-- CHOOSE YOUR TRACK (pricing tiers) -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Subjects &amp; pricing</p>
+        <h2>Choose your track</h2>
+      </div>
+      <div class="tiers">
+        {
+          tiers.map((t) => (
+            <div class={`tier${t.featured ? ' tier--featured' : ''}`}>
+              {t.featured && <div class="tier__badge">Most popular</div>}
+              <div class="tier__name">{t.name}</div>
+              <div class="tier__subtitle">{t.subtitle}</div>
+              <div class="tier__price"><span class="tier__num">{t.price}</span> / hour</div>
+              <ul class="tier__features">
+                {t.features.map((f) => (
+                  <li><span aria-hidden="true">&#10003;</span> {f}</li>
+                ))}
+              </ul>
+              <a class="btn btn--primary tier__cta" href={withBase('/contact/')}>Get started</a>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="subjects-row">
+        {
+          subjects.map((s) => (
+            <a class="subject-chip" href={withBase(`/subjects/${s.slug}/`)}>
+              {s.shortName} <span aria-hidden="true">&rarr;</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY / TRUST -->
+  <section class="section section--stone">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Why students learn with us</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item"><h3>Taught by specialists</h3><p>Learn from students at Cambridge and Imperial, teaching the subjects they excelled in themselves.</p></div>
+        <div class="why-item"><h3>Recent top grades</h3><p>Top A-level grades and recent exam experience, so lessons come from people who sat these papers not long ago.</p></div>
+        <div class="why-item"><h3>Built around you</h3><p>Lessons start with the topics holding you back, matched to your exam board and past papers.</p></div>
+        <div class="why-item"><h3>Flexible and online</h3><p>One to one over video, so lessons fit around school wherever you are in the UK.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section class="section" id="blog">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Resources</p>
+        <h2>From the blog</h2>
+      </div>
+      <div class="posts-grid">
+        {
+          recentPosts.map((p) => (
+            <a class="post-card" href={withBase(`/resources/${p.slug}/`)}>
+              <Placeholder ratio="16 / 9" label="Photo" class="post-card__photo" />
+              <div class="post-card__body">
+                <h3>{p.title}</h3>
+                <p>{p.excerpt}</p>
+                <span class="post-card__cta" aria-hidden="true">Read more &rarr;</span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--stone">
+    <div class="wrap faq-wrap">
+      <div class="section-head"><h2>Questions</h2></div>
+      <FaqBlock faqs={homeFaqs} heading="" level="h3" />
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--petrol" id="contact">
+    <div class="wrap cta">
+      <h2>Book a free consultation</h2>
+      <p>Tell Yong what you want to work on and your exam board, and we'll plan a first lesson around it.</p>
+      <div class="cta__actions">
+        <a class="btn btn--primary" href={business.whatsappHref}>WhatsApp {business.phoneDisplay}</a>
+        <a class="btn btn--ghost" href={`mailto:${business.email}`}>Email Yong</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
+
+  .hero-grid {
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  @media (min-width: 52rem) {
+    .hero-grid { grid-template-columns: 1.2fr 1fr; }
+  }
+
+  .hero-sub {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--muted);
+    max-width: 34rem;
+    margin: 1.25rem 0 2rem;
+  }
+
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: clamp(2.5rem, 6vw, 4rem);
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--hairline);
+    text-align: center;
+  }
+
+  .hero-stats__n {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .hero-stats__l { font-size: 0.85rem; color: var(--muted); }
+
+  /* Meet Yong */
+  .meet-grid {
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  @media (min-width: 46rem) {
+    .meet-grid { grid-template-columns: 0.8fr 1.2fr; }
+  }
+
+  .meet-bio { color: var(--muted); max-width: 38rem; }
+
+  .tutors-preview {
+    display: grid;
+    gap: var(--gap);
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 34rem) {
+    .tutors-preview { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .tprev {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .tprev:hover { border-color: var(--petrol); }
+  .tprev__photo { width: 72px; flex-shrink: 0; }
+  .tprev__name { display: block; font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; }
+  .tprev__role { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--petrol); }
+
+  .tutors-more { margin-top: 1.5rem; }
+
+  /* Tiers */
+  .tiers {
+    display: grid;
+    gap: var(--gap);
+    max-width: 52rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 40rem) {
+    .tiers { grid-template-columns: 1fr 1fr; }
+  }
+
+  .tier {
+    position: relative;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 2rem 1.75rem;
+  }
+
+  .tier--featured { border-color: var(--petrol); box-shadow: 0 8px 30px oklch(0.45 0.09 200 / 0.12); }
+
+  .tier__badge {
+    position: absolute;
+    top: -0.75rem;
+    right: 1.5rem;
+    background: var(--amber);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius);
+  }
+
+  .tier__name { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; }
+  .tier__subtitle { color: var(--muted); margin-bottom: 1rem; }
+  .tier__price { color: var(--muted); margin-bottom: 1.25rem; }
+  .tier__num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 600; color: var(--ink); }
+
+  .tier__features { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: 0.55rem; }
+  .tier__features li { color: var(--ink); }
+  .tier__features span { color: var(--petrol); font-weight: 600; margin-right: 0.4rem; }
+
+  .tier__cta { width: 100%; justify-content: center; }
+
+  .subjects-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .subject-chip {
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 0.5rem 0.9rem;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.92rem;
+    background: var(--white);
+  }
+
+  .subject-chip:hover { border-color: var(--petrol); color: var(--petrol); }
+
+  /* Why grid */
+  .why-grid { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); }
+  @media (min-width: 46rem) { .why-grid { grid-template-columns: repeat(4, 1fr); } }
+  .why-item h3 { color: var(--petrol); margin-bottom: 0.35rem; font-size: 1.15rem; }
+  .why-item p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+
+  /* Resources */
+  .posts-grid { display: grid; gap: var(--gap); }
+  @media (min-width: 46rem) { .posts-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--ink);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+
+  .post-card:hover { box-shadow: 0 10px 26px rgba(30, 34, 45, 0.1); transform: translateY(-2px); }
+  .post-card__photo { border-radius: 0; }
+  .post-card__body { padding: 1.25rem; display: flex; flex-direction: column; flex-grow: 1; }
+  .post-card__body h3 { margin-bottom: 0.5rem; }
+  .post-card__body p { color: var(--muted); flex-grow: 1; }
+  .post-card__cta { color: var(--petrol); font-weight: 500; }
+
+  .faq-wrap { max-width: 48rem; }
+
+  /* Contact CTA */
+  .cta { text-align: center; max-width: 40rem; margin: 0 auto; }
+  .cta p { color: var(--stone); margin: 0 auto 1.75rem; max-width: 34rem; }
+  .cta__actions { display: flex; flex-wrap: wrap; gap: 0.85rem; justify-content: center; }
+  .cta .btn--ghost { color: var(--stone); border-color: var(--stone); }
+  .cta .btn--ghost:hover { background: var(--stone); color: var(--petrol); border-color: var(--stone); }
+</style>

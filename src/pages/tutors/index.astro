@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import { business } from '../../data/business';
+import { tutors } from '../../data/tutors';
+import { subjects } from '../../data/subjects';
+import { withBase } from '../../lib/paths';
+
+const subjectName = (slug: string) => subjects.find((s) => s.slug === slug)?.shortName ?? slug;
+---
+
+<BaseLayout
+  title="Tutors | Yong's Tutoring"
+  description="Meet the Yong's Tutoring team. One to one online maths and economics tutoring for GCSE and A-level, taught by specialist tutors."
+  path="/tutors/"
+>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">The team</p>
+      <h1>Our tutors</h1>
+      <p class="lede muted">
+        One to one, online, matched to your subject and level. We are growing the
+        team, so if you would like a particular subject or time, just ask.
+      </p>
+
+      <div class="tutor-list">
+        {
+          tutors.map((t) => (
+            <a class="tutor-card" href={withBase(`/tutors/${t.slug}/`)}>
+              <Placeholder ratio="1 / 1" label={`Photo of ${t.name}`} class="tutor-card__photo" />
+              <div class="tutor-card__body">
+                <h2 class="tutor-card__name">{t.name}</h2>
+                <p class="tutor-card__role">{t.role}</p>
+                <p class="tutor-card__subjects">
+                  {t.subjects.map((s) => subjectName(s)).join(' · ')}
+                </p>
+                <span class="tutor-card__cta" aria-hidden="true">Read profile &rarr;</span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tutor-list {
+    display: grid;
+    gap: var(--gap);
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 34rem) {
+    .tutor-list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .tutor-card {
+    display: flex;
+    gap: 1.1rem;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 1.1rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .tutor-card:hover { border-color: var(--petrol); }
+
+  .tutor-card__photo { width: 88px; flex-shrink: 0; }
+
+  .tutor-card__name { font-size: 1.3rem; margin: 0; }
+  .tutor-card__role { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--petrol); margin: 0.15rem 0 0.4rem; }
+  .tutor-card__subjects { color: var(--muted); font-size: 0.9rem; margin: 0 0 0.5rem; }
+  .tutor-card__cta { color: var(--petrol); font-weight: 500; font-size: 0.9rem; }
+</style>

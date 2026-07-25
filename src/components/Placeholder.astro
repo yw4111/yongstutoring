@@ -1,0 +1,38 @@
+---
+// Image placeholder. Occupies the exact space a real photo will fill, so the
+// layout reads as photo-led now and images drop straight in later.
+interface Props {
+  ratio?: string;
+  label?: string;
+  class?: string;
+}
+const { ratio = '4 / 3', label = 'Photo', class: cls = '' } = Astro.props;
+---
+
+<div class={`ph ${cls}`} style={`aspect-ratio:${ratio}`} role="img" aria-label={`${label} placeholder`}>
+  <span class="ph__label">{label}</span>
+</div>
+
+<style>
+  .ph {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    background:
+      radial-gradient(circle at 30% 25%, oklch(0.98 0.006 80 / 0.8), transparent 60%),
+      linear-gradient(135deg, oklch(0.8 0.05 200) 0%, oklch(0.55 0.09 200) 100%);
+    border-radius: var(--radius);
+    color: oklch(0.98 0.006 80);
+    overflow: hidden;
+  }
+
+  .ph__label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    text-align: center;
+    padding: 0.5rem;
+  }
+</style>

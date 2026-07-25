@@ -1,0 +1,146 @@
+---
+import { business } from '../data/business';
+import { subjects } from '../data/subjects';
+import { withBase } from '../lib/paths';
+import { BUILD_DATE } from '../lib/schema';
+
+const reviewed = new Date(BUILD_DATE).toLocaleDateString('en-GB', {
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<footer class="site-footer">
+  <div class="wrap site-footer__grid">
+    <div>
+      <p class="site-footer__name">{business.name}</p>
+      <p class="muted-light">{business.descriptionShort}</p>
+    </div>
+
+    <div>
+      <h2 class="site-footer__head">Contact</h2>
+      <address class="site-footer__address">
+        <a href={`mailto:${business.email}`}>{business.email}</a><br />
+        <a href={business.whatsappHref}>{business.phoneDisplay} (WhatsApp)</a><br />
+        <span class="muted-light">Online, across the UK</span>
+      </address>
+    </div>
+
+    <div>
+      <h2 class="site-footer__head">Subjects</h2>
+      <ul class="site-footer__links">
+        {
+          subjects.map((s) => (
+            <li>
+              <a href={withBase(`/subjects/${s.slug}/`)}>{s.shortName}</a>
+            </li>
+          ))
+        }
+        <li><a href={withBase('/subjects/')}>All subjects</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="site-footer__head">More</h2>
+      <ul class="site-footer__links">
+        <li><a href={withBase('/about/')}>About Yong</a></li>
+        <li><a href={withBase('/pricing/')}>Pricing</a></li>
+        <li><a href={withBase('/resources/')}>Resources</a></li>
+        <li><a href={withBase('/contact/')}>Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap site-footer__legal">
+    <p>
+      &copy; {new Date().getFullYear()} {business.legalName}. Online maths and
+      economics tutoring across the UK.
+    </p>
+    <p class="site-footer__reviewed">Information last reviewed {reviewed}.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--stone-bg);
+    color: var(--ink);
+    border-top: 1px solid var(--hairline);
+    padding-block: clamp(2.5rem, 6vw, 4rem) 1.5rem;
+  }
+
+  .site-footer__grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 45rem) {
+    .site-footer__grid {
+      grid-template-columns: 1.6fr 1fr 1fr 0.9fr;
+    }
+  }
+
+  .site-footer__name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .muted-light {
+    color: var(--muted);
+  }
+
+  .stamp-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .site-footer .stamp {
+    color: var(--stone);
+    border-color: var(--hairline);
+  }
+
+  .site-footer__head {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--petrol);
+    margin-bottom: 0.8rem;
+  }
+
+  .site-footer__address {
+    font-style: normal;
+    line-height: 1.8;
+  }
+
+  .site-footer a {
+    color: var(--ink);
+  }
+
+  .site-footer a:hover {
+    color: var(--petrol);
+  }
+
+  .site-footer__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.9;
+  }
+
+  .site-footer__legal {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--hairline);
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .site-footer__legal p {
+    margin: 0;
+  }
+</style>

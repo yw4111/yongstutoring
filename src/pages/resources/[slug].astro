@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import { business } from '../../data/business';
+import { posts } from '../../data/posts';
+import { blogPostingSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+export function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const others = posts.filter((p) => p.slug !== post.slug).slice(0, 2);
+const schema = [blogPostingSchema(post)];
+const fmt = (d: string) =>
+  new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<BaseLayout
+  title={`${post.title} | Yong's Tutoring`}
+  description={post.excerpt}
+  path={`/resources/${post.slug}/`}
+  schema={schema}
+>
+  <article>
+    <section class="section section--petrol">
+      <div class="wrap post-head">
+        <p class="breadcrumb"><a href={withBase('/resources/')}>Resources</a></p>
+        <h1>{post.title}</h1>
+        <p class="post-meta">By {post.author} &middot; <time datetime={post.date}>{fmt(post.date)}</time> &middot; {post.readMins} min read</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap post-body">
+        <Placeholder ratio="16 / 9" label="Photo" class="post-photo" />
+        {post.body.map((p) => <p>{p}</p>)}
+        <p class="post-cta"><a class="btn btn--primary" href={withBase('/contact/')}>Book a lesson with Yong</a></p>
+      </div>
+    </section>
+
+    <section class="section section--stone">
+      <div class="wrap">
+        <h2 class="center">More resources</h2>
+        <div class="grid grid--2 more-news">
+          {
+            others.map((p) => (
+              <a class="more-card" href={withBase(`/resources/${p.slug}/`)}>
+                <span class="more-card__title">{p.title}</span>
+                <span class="more-card__ex">{p.excerpt}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-head { max-width: 44rem; }
+  .breadcrumb { font-size: 0.85rem; margin-bottom: 0.5rem; }
+  .breadcrumb a { color: var(--stone); }
+  .post-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--amber); }
+  .post-body { max-width: 42rem; }
+  .post-photo { margin-bottom: 1.75rem; }
+  .post-body p { font-size: 1.1rem; line-height: 1.7; }
+  .post-cta { margin-top: 1.5rem; }
+  .more-news { margin-top: 1.5rem; }
+  .more-card { display: block; background: var(--white); border: 1px solid var(--hairline); border-radius: var(--radius); padding: 1.25rem; text-decoration: none; color: var(--ink); }
+  .more-card__title { display: block; font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin-bottom: 0.35rem; }
+  .more-card__ex { color: var(--muted); font-size: 0.95rem; }
+  .more-card:hover .more-card__title { color: var(--petrol); }
+</style>

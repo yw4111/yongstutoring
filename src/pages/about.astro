@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { business } from '../data/business';
+import { leadTutor } from '../data/tutors';
+import { withBase } from '../lib/paths';
+---
+
+<BaseLayout
+  title="About | Yong's Tutoring"
+  description="Yong is an Economics, Finance and Data Science student at Imperial College London with A*AAA at A-level, tutoring maths and economics online for GCSE and A-level."
+  path="/about/"
+>
+  <section class="section section--petrol">
+    <div class="wrap">
+      <span class="eyebrow">About</span>
+      <h1>About Yong's Tutoring</h1>
+      <p class="lede" style="color: var(--stone);">
+        One to one online tutoring in maths and economics for GCSE and A-level,
+        taught by an Imperial College London student who sat these exams recently
+        and knows what they take.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--stone">
+    <div class="wrap about-body">
+      <div class="about-main">
+        <h2>Meet {leadTutor.name}</h2>
+        {leadTutor.bio.map((p) => <p>{p}</p>)}
+
+        <h2>How I teach</h2>
+        <p>
+          Lessons start with the topics holding you back, then build across the
+          full specification with real past paper practice. Everything is one to
+          one and online, matched to your exam board, so the work is exactly what
+          you sit.
+        </p>
+
+        <h2>Why it helps to learn from a recent student</h2>
+        <p>
+          I sat these exams recently and achieved A*AAA, so I know the
+          specifications, the common pitfalls and the exam technique that makes the
+          difference. As an Economics, Finance and Data Science student at Imperial,
+          I teach maths and economics from a genuine working knowledge of both.
+        </p>
+      </div>
+
+      <aside class="about-side">
+        <div class="schedule">
+          <div class="schedule__head">
+            <span>{leadTutor.name}</span>
+            <span>Tutor</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">University</span>
+            <span class="schedule__value">{leadTutor.credentials.university}</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Course</span>
+            <span class="schedule__value">{leadTutor.credentials.course}</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">A-levels</span>
+            <span class="schedule__value">{leadTutor.credentials.alevels}</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Experience</span>
+            <span class="schedule__value">{leadTutor.credentials.experienceYears} years</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Teaches</span>
+            <span class="schedule__value">Maths and economics</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--petrol">
+    <div class="wrap">
+      <h2>Book a lesson</h2>
+      <p class="lede" style="color: var(--stone);">
+        Message {business.phoneDisplay} on WhatsApp or email {business.email} to
+        arrange a first lesson. Lessons are {business.areaServedDisplay}.
+      </p>
+      <div class="about-actions">
+        <a class="btn btn--primary" href={business.whatsappHref}>Book a lesson</a>
+        <a class="btn btn--ghost" href={withBase('/subjects/')}>See subjects</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-body {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 46rem) {
+    .about-body {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+
+  .about-main h2 {
+    margin-top: 2rem;
+  }
+
+  .about-main h2:first-child {
+    margin-top: 0;
+  }
+
+  .about-main p {
+    max-width: 46rem;
+    color: var(--muted);
+  }
+
+  .about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+</style>

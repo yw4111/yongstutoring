@@ -1,0 +1,166 @@
+---
+import { business } from '../data/business';
+import { withBase } from '../lib/paths';
+
+const nav = [
+  { href: '/about/', label: 'About' },
+  { href: '/tutors/', label: 'Tutors' },
+  { href: '/subjects/', label: 'Subjects' },
+  { href: '/pricing/', label: 'Pricing' },
+  { href: '/resources/', label: 'Resources' },
+  { href: '/contact/', label: 'Contact' },
+];
+const current = Astro.url.pathname;
+const isCurrent = (href: string) => current === withBase(href) || current.startsWith(withBase(href));
+const { currencySymbol } = business.rates;
+---
+
+<aside class="sidebar">
+  <div class="sidebar__top">
+    <a href={withBase('/')} class="sidebar__brand">Yong's Tutoring</a>
+    <p class="sidebar__tagline">Online tutoring in maths, science and economics, GCSE and A-level.</p>
+  </div>
+
+  <nav class="sidebar__nav" aria-label="Primary">
+    <ul>
+      {
+        nav.map((item) => (
+          <li>
+            <a href={withBase(item.href)} aria-current={isCurrent(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <div class="sidebar__foot">
+    <p class="sidebar__rate">From {currencySymbol}{business.rates.gcse} / hour</p>
+    <a class="btn btn--primary sidebar__cta" href={withBase('/contact/')}>Book a consult</a>
+    <p class="sidebar__contact">
+      <a href={business.whatsappHref}>{business.phoneDisplay}</a><br />
+      <a href={`mailto:${business.email}`}>{business.email}</a>
+    </p>
+  </div>
+</aside>
+
+<style>
+  .sidebar {
+    background: var(--stone-bg);
+    border-right: 1px solid var(--hairline);
+    padding: clamp(1.5rem, 2.5vw, 2.25rem);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .sidebar__brand {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 1.1;
+    display: block;
+  }
+
+  .sidebar__tagline {
+    margin: 0.6rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .sidebar__nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .sidebar__nav a {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid transparent;
+  }
+
+  .sidebar__nav a:hover {
+    color: var(--petrol);
+  }
+
+  .sidebar__nav a[aria-current='page'] {
+    color: var(--petrol);
+    border-bottom-color: var(--petrol);
+  }
+
+  .sidebar__foot {
+    margin-top: auto;
+  }
+
+  .sidebar__rate {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin: 0 0 0.75rem;
+  }
+
+  .sidebar__cta {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar__contact {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .sidebar__contact a {
+    color: var(--muted);
+  }
+
+  .sidebar__contact a:hover {
+    color: var(--petrol);
+  }
+
+  /* Mobile: sidebar becomes a top block */
+  @media (max-width: 60rem) {
+    .sidebar {
+      border-right: none;
+      border-bottom: 1px solid var(--hairline);
+      gap: 1.25rem;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: oklch(0.98 0.006 80 / 0.95);
+      backdrop-filter: blur(6px);
+    }
+
+    .sidebar__nav ul {
+      grid-auto-flow: column;
+      grid-template-columns: none;
+      justify-content: start;
+      gap: 0.25rem 1rem;
+      flex-wrap: wrap;
+      overflow-x: auto;
+    }
+
+    .sidebar__nav a {
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+
+    .sidebar__tagline,
+    .sidebar__foot {
+      display: none;
+    }
+  }
+</style>

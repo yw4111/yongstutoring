@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { business } from '../data/business';
+import { subjects } from '../data/subjects';
+import { withBase } from '../lib/paths';
+---
+
+<BaseLayout
+  title="Contact | Yong's Tutoring"
+  description="Book online maths or economics tutoring with Yong. Message 07846 663339 on WhatsApp or email yonggw3307@gmail.com. GCSE £40/hr, A-level £45/hr."
+  path="/contact/"
+>
+  <section class="section section--petrol">
+    <div class="wrap">
+      <span class="eyebrow">Book a lesson</span>
+      <h1>Contact</h1>
+      <p class="lede" style="color: var(--stone);">
+        The quickest way to book is a WhatsApp message. Tell me the subject, the
+        level and what you want to work on, and we will find a time. Lessons are
+        {business.areaServedDisplay}.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--stone">
+    <div class="wrap contact-grid">
+      <!-- Contact details -->
+      <div>
+        <div class="schedule">
+          <div class="schedule__head">
+            <span>Yong's Tutoring</span>
+            <span>Contact</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">WhatsApp</span>
+            <span class="schedule__value">
+              <a href={business.whatsappHref}>{business.phoneDisplay}</a>
+            </span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Email</span>
+            <span class="schedule__value">
+              <a href={`mailto:${business.email}`}>{business.email}</a>
+            </span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">GCSE</span>
+            <span class="schedule__value">{business.rates.currencySymbol}{business.rates.gcse}/hour</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">A-level</span>
+            <span class="schedule__value">{business.rates.currencySymbol}{business.rates.alevel}/hour</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Delivery</span>
+            <span class="schedule__value">Online, all exam boards</span>
+          </div>
+        </div>
+
+        <p class="whatsapp-cta">
+          <a class="btn btn--primary" href={business.whatsappHref}>Message on WhatsApp</a>
+        </p>
+      </div>
+
+      <!-- Enquiry form. Wired for Netlify Forms; WhatsApp and email above work
+           regardless of host. -->
+      <div>
+        <h2>Send an enquiry</h2>
+        <p class="muted">
+          Prefer to write it out? Send a few details and I will get back to you.
+          Fields marked with a star are needed.
+        </p>
+        <form
+          class="booking"
+          name="enquiry"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action={withBase('/contact/thanks/')}
+        >
+          <input type="hidden" name="form-name" value="enquiry" />
+          <p class="hidden-field">
+            <label>Leave this empty <input name="bot-field" /></label>
+          </p>
+
+          <div class="field">
+            <label for="name">Your name <span aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" required autocomplete="name" />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="subject">Subject and level</label>
+            <select id="subject" name="subject">
+              <option value="">Choose a subject</option>
+              {subjects.map((s) => <option value={s.name}>{s.name}</option>)}
+              <option value="Something else">Something else</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">What would you like to work on <span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button class="btn btn--primary" type="submit">Send enquiry</button>
+          <p class="form-note muted">
+            Prefer to message? WhatsApp
+            <a href={business.whatsappHref}>{business.phoneDisplay}</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 46rem) {
+    .contact-grid {
+      grid-template-columns: 1fr 1.2fr;
+    }
+  }
+
+  .whatsapp-cta {
+    margin-top: 1.25rem;
+  }
+
+  .booking {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .field-row {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 30rem) {
+    .field-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .booking label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .booking input,
+  .booking select,
+  .booking textarea {
+    font: inherit;
+    padding: 0.6rem 0.7rem;
+    border: 1.5px solid var(--hairline);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--ink);
+  }
+
+  .booking input:focus-visible,
+  .booking select:focus-visible,
+  .booking textarea:focus-visible {
+    outline: 2px solid var(--petrol);
+    outline-offset: 1px;
+  }
+
+  .hidden-field {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .form-note {
+    font-size: 0.88rem;
+    margin-top: 0.25rem;
+  }
+</style>

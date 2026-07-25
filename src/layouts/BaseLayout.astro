@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+import Sidebar from '../components/Sidebar.astro';
+import Footer from '../components/Footer.astro';
+import { business } from '../data/business';
+import { tutors } from '../data/tutors';
+import { withBase } from '../lib/paths';
+import {
+  organizationSchema,
+  tutorPersonSchema,
+  webSiteSchema,
+  webPageSchema,
+} from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path only, e.g. /services/plumbing */
+  path?: string;
+  /** Page-specific JSON-LD objects (FAQPage, Service, ItemList...). The
+      LocalBusiness, WebSite and dated WebPage nodes are added automatically. */
+  schema?: unknown[];
+}
+
+const { title, description, path = '/', schema = [] } = Astro.props;
+const canonical = new URL(path, business.url).href;
+const fullTitle = title.includes(business.name) ? title : `${title} | ${business.name}`;
+
+// Every page carries the business entity, each tutor, the site node and a dated
+// page node, so any single-page crawl sees the full picture.
+const allSchema = [
+  organizationSchema(),
+  ...tutors.map((t) => tutorPersonSchema(t)),
+  webSiteSchema(),
+  webPageSchema(path, fullTitle, description),
+  ...schema,
+];
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="sitemap" type="application/xml" href={withBase('/sitemap-index.xml')} />
+    <meta name="theme-color" content="#3f7d8a" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={business.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_GB" />
+
+    {
+      allSchema.map((s) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(s)}
+        />
+      ))
+    }
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="layout">
+      <Sidebar />
+      <div class="layout__main">
+        <main id="main">
+          <slot />
+        </main>
+        <Footer />
+      </div>
+    </div>
+  </body>
+</html>

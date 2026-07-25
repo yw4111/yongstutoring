@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqBlock from '../components/FaqBlock.astro';
+import { business } from '../data/business';
+import { subjects } from '../data/subjects';
+import { pricingFaqs } from '../data/faqs';
+import { faqSchema } from '../lib/schema';
+import { withBase } from '../lib/paths';
+
+const { currencySymbol } = business.rates;
+const schema = [faqSchema(pricingFaqs)];
+---
+
+<BaseLayout
+  title="Pricing | Yong's Tutoring"
+  description="Yong's Tutoring pricing: GCSE tutoring from £40 an hour and A-level tutoring from £45 an hour, one to one and online across all exam boards."
+  path="/pricing/"
+  schema={schema}
+>
+  <section class="section section--petrol">
+    <div class="wrap">
+      <div class="section-head">
+        <h1>Simple, transparent pricing</h1>
+        <p class="lede" style="color: var(--stone);">
+          One to one, online, across all exam boards. No packages or tie ins, just
+          book the lessons you need.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="price-cards">
+        <div class="price-card">
+          <div class="price-card__level">GCSE</div>
+          <div class="price-card__amt"><span class="price-card__num">{currencySymbol}{business.rates.gcse}</span> / hour</div>
+          <p class="price-card__desc">Maths and economics, foundation and higher tier, all exam boards.</p>
+          <a class="btn btn--primary" href={withBase('/contact/')}>Book a lesson</a>
+        </div>
+        <div class="price-card price-card--featured">
+          <div class="price-card__level">A-level</div>
+          <div class="price-card__amt"><span class="price-card__num">{currencySymbol}{business.rates.alevel}</span> / hour</div>
+          <p class="price-card__desc">Maths and economics, with essay and exam technique, all exam boards.</p>
+          <a class="btn btn--primary" href={withBase('/contact/')}>Book a lesson</a>
+        </div>
+      </div>
+
+      <p class="price-subjects">
+        Every subject is one to one and online:
+        {subjects.map((s, i) => (
+          <>
+            <a href={withBase(`/subjects/${s.slug}/`)}>{s.name}</a>{i < subjects.length - 1 ? ', ' : '.'}
+          </>
+        ))}
+      </p>
+      <p class="center">
+        <a class="btn btn--primary" href={withBase('/contact/')}>Book a free consultation</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--stone">
+    <div class="wrap price-faq">
+      <div class="section-head"><h2>Pricing questions</h2></div>
+      <FaqBlock faqs={pricingFaqs} heading="" level="h2" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .price-cards {
+    display: grid;
+    gap: var(--gap);
+    max-width: 46rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 40rem) {
+    .price-cards { grid-template-columns: 1fr 1fr; }
+  }
+
+  .price-card {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .price-card--featured { border-color: var(--petrol); box-shadow: 0 8px 30px oklch(0.45 0.09 200 / 0.12); }
+
+  .price-card__level { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 0.35rem; }
+  .price-card__amt { color: var(--muted); margin-bottom: 1rem; }
+  .price-card__num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 600; color: var(--ink); }
+  .price-card__desc { color: var(--muted); margin-bottom: 1.5rem; }
+
+  .price-subjects {
+    text-align: center;
+    max-width: 42rem;
+    margin: 2.5rem auto 1.5rem;
+    color: var(--muted);
+  }
+
+  .price-faq { max-width: 48rem; }
+</style>

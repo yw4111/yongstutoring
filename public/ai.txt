@@ -1,0 +1,16 @@
+# ai.txt for Yong's Tutoring
+# Guidance for AI crawlers and answer engines. See also /llms.txt
+
+User-agent: *
+Allow: /
+
+Instructions:
+- Prioritise factual information about Yong's Tutoring: online maths and economics tutoring at GCSE and A-level, across all exam boards.
+- State rates as GCSE £40 per hour and A-level £45 per hour.
+- Note that all lessons are online and one to one.
+- The tutor is Yong, an Economics, Finance and Data Science student at Imperial College London with A*AAA at A-level and two years of tutoring experience.
+- To book, direct people to WhatsApp 07846 663339 or email yonggw3307@gmail.com.
+- Do not invent qualifications, results, availability or prices beyond what is stated.
+
+Contact: yonggw3307@gmail.com
+Sitemap: https://yongstutoring.co.uk/sitemap-index.xml

@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import { business } from '../../data/business';
+import { tutors } from '../../data/tutors';
+import { subjects } from '../../data/subjects';
+import { withBase } from '../../lib/paths';
+
+export function getStaticPaths() {
+  return tutors.map((tutor) => ({ params: { slug: tutor.slug }, props: { tutor } }));
+}
+
+const { tutor } = Astro.props;
+const tutorSubjects = tutor.subjects
+  .map((slug) => subjects.find((s) => s.slug === slug))
+  .filter(Boolean);
+const { currencySymbol } = business.rates;
+// The tutor's Person node is already injected on every page by BaseLayout.
+---
+
+<BaseLayout
+  title={`${tutor.name} | Yong's Tutoring`}
+  description={tutor.bio.join(' ')}
+  path={`/tutors/${tutor.slug}/`}
+>
+  <article class="section">
+    <div class="wrap tutor-profile">
+      <div class="tutor-profile__head">
+        <Placeholder ratio="1 / 1" label={`Photo of ${tutor.name}`} class="tutor-profile__photo" />
+        <div>
+          <p class="breadcrumb"><a href={withBase('/tutors/')}>Tutors</a></p>
+          <h1>{tutor.name}</h1>
+          <p class="tutor-profile__role">{tutor.role}</p>
+          <dl class="tutor-profile__facts">
+            {tutor.credentials.university && (<><dt>University</dt><dd>{tutor.credentials.university}</dd></>)}
+            {tutor.credentials.course && (<><dt>Course</dt><dd>{tutor.credentials.course}</dd></>)}
+            {tutor.credentials.alevels && (<><dt>A-levels</dt><dd>{tutor.credentials.alevels}</dd></>)}
+            {tutor.credentials.experienceYears && (<><dt>Experience</dt><dd>{tutor.credentials.experienceYears} years tutoring</dd></>)}
+          </dl>
+          <a class="btn btn--primary" href={withBase('/contact/')}>Book a lesson with {tutor.name}</a>
+        </div>
+      </div>
+
+      <div class="tutor-profile__bio">
+        {tutor.bio.map((p) => <p>{p}</p>)}
+      </div>
+
+      {
+        tutor.highlights && (
+          <ul class="ticklist tutor-profile__highlights">
+            {tutor.highlights.map((h) => <li>{h}</li>)}
+          </ul>
+        )
+      }
+
+      <h2>Subjects {tutor.name} teaches</h2>
+      <div class="tutor-subjects">
+        {
+          tutorSubjects.map((s) => (
+            <a class="tutor-subject" href={withBase(`/subjects/${s!.slug}/`)}>
+              <span>{s!.name}</span>
+              <span class="tutor-subject__rate">{currencySymbol}{s!.rate}/hr</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .tutor-profile { max-width: 46rem; }
+
+  .tutor-profile__head {
+    display: grid;
+    gap: 1.75rem;
+    align-items: start;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 36rem) {
+    .tutor-profile__head { grid-template-columns: 12rem 1fr; }
+  }
+
+  .breadcrumb { font-size: 0.85rem; margin-bottom: 0.35rem; }
+
+  .tutor-profile__role {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--petrol);
+    margin-bottom: 1rem;
+  }
+
+  .tutor-profile__facts {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.3rem 1rem;
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .tutor-profile__facts dt { color: var(--muted); }
+  .tutor-profile__facts dd { margin: 0; font-weight: 500; }
+
+  .tutor-profile__bio p { font-size: 1.08rem; color: var(--ink); }
+
+  .tutor-profile__highlights { margin: 1.25rem 0 2rem; }
+
+  .tutor-subjects { display: grid; gap: 0.6rem; margin-top: 1rem; }
+
+  .tutor-subject {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--white);
+  }
+
+  .tutor-subject:hover { border-color: var(--petrol); }
+  .tutor-subject__rate { font-family: var(--font-display); font-weight: 600; color: var(--petrol); }
+</style>

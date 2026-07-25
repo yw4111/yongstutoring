@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import { posts } from '../../data/posts';
+import { blogItemListSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+const schema = [blogItemListSchema()];
+const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+const fmt = (d: string) =>
+  new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<BaseLayout
+  title="Resources | Yong's Tutoring"
+  description="Study guides and exam advice from Yong's Tutoring on GCSE and A-level maths and economics: how to revise, exam technique and how online tutoring works."
+  path="/resources/"
+  schema={schema}
+>
+  <section class="section section--petrol">
+    <div class="wrap">
+      <div class="section-head">
+        <h1>Resources</h1>
+        <p class="lede" style="color: var(--stone);">
+          Study guides and exam advice for GCSE and A-level maths and economics.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--3">
+        {
+          sorted.map((p) => (
+            <a class="post-card" href={withBase(`/resources/${p.slug}/`)}>
+              <Placeholder ratio="16 / 9" label="Photo" class="post-card__photo" />
+              <div class="post-card__body">
+                <time datetime={p.date}>{fmt(p.date)}</time>
+                <h2 class="post-card__title">{p.title}</h2>
+                <p class="post-card__excerpt">{p.excerpt}</p>
+                <span class="post-card__cta" aria-hidden="true">Read more &rarr;</span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--ink);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  .post-card:hover { box-shadow: 0 10px 26px rgba(30, 34, 45, 0.1); transform: translateY(-2px); }
+  .post-card__photo { border-radius: 0; }
+  .post-card__body { padding: 1.25rem; display: flex; flex-direction: column; flex-grow: 1; }
+  .post-card__body time { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .post-card__title { font-size: 1.2rem; margin: 0.4rem 0 0.5rem; }
+  .post-card__excerpt { color: var(--muted); flex-grow: 1; margin-bottom: 1rem; }
+  .post-card__cta { color: var(--petrol); font-weight: 500; }
+</style>

@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import FaqBlock from '../../components/FaqBlock.astro';
+import { business } from '../../data/business';
+import { subjects } from '../../data/subjects';
+import { subjectsFaqs } from '../../data/faqs';
+import { subjectsItemListSchema, faqSchema } from '../../lib/schema';
+import { withBase } from '../../lib/paths';
+
+const schema = [subjectsItemListSchema(), faqSchema(subjectsFaqs)];
+---
+
+<BaseLayout
+  title="Subjects | Yong's Tutoring"
+  description="Online one to one tutoring in GCSE and A-level maths and economics, across all exam boards. GCSE £40/hr, A-level £45/hr."
+  path="/subjects/"
+  schema={schema}
+>
+  <section class="section section--petrol">
+    <div class="wrap">
+      <span class="eyebrow">Subjects</span>
+      <h1>Maths and economics tutoring</h1>
+      <p class="lede" style="color: var(--stone);">
+        Yong's Tutoring covers maths and economics at GCSE and A-level, one to one
+        and online across all exam boards. GCSE lessons are £40 an hour and A-level
+        lessons are £45 an hour.
+      </p>
+      <div class="svc-index-actions">
+        <a class="btn btn--primary" href={business.whatsappHref}>Book a lesson</a>
+        <a class="btn btn--ghost" href={`mailto:${business.email}`}>Email Yong</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--stone">
+    <div class="wrap">
+      <p class="lede muted svc-index-intro">
+        Pick a subject to see what is covered, the rate and the questions I get
+        asked most. Every lesson is matched to your exam board and past papers.
+      </p>
+      <div class="grid grid--2">
+        {subjects.map((s) => <ServiceCard subject={s} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="wrap svc-index-faq">
+      <span class="eyebrow">Answers</span>
+      <FaqBlock faqs={subjectsFaqs} heading="Questions about tutoring" level="h2" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .svc-index-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .svc-index-intro {
+    max-width: 46rem;
+    margin-bottom: 2rem;
+  }
+
+  .svc-index-faq {
+    max-width: 52rem;
+  }
+</style>

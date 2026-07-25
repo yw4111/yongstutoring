@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FaqBlock from '../../components/FaqBlock.astro';
 import { business } from '../../data/business';
 import { subjects } from '../../data/subjects';
-import { getTutor } from '../../data/tutors';
 import { subjectServiceSchema, faqSchema } from '../../lib/schema';
 import { withBase } from '../../lib/paths';
 
@@ -13,7 +12,6 @@ export function getStaticPaths() {
 
 const { subject } = Astro.props;
 const { currencySymbol } = business.rates;
-const tutorsForSubject = subject.tutorSlugs.map((s) => getTutor(s)).filter(Boolean);
 const related = subjects.filter((s) => s.slug !== subject.slug);
 const schema = [subjectServiceSchema(subject), faqSchema(subject.faqs)];
 ---
@@ -74,14 +72,6 @@ const schema = [subjectServiceSchema(subject), faqSchema(subject.faqs)];
             <span class="schedule__label">Exam boards</span>
             <span class="schedule__value">All</span>
           </div>
-          {
-            tutorsForSubject.map((t) => (
-              <div class="schedule__row">
-                <span class="schedule__label">Tutor</span>
-                <span class="schedule__value">{t!.name}</span>
-              </div>
-            ))
-          }
         </div>
       </aside>
     </div>

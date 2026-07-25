@@ -1,23 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { business } from '../data/business';
-import { leadTutor } from '../data/tutors';
+import { tutors } from '../data/tutors';
 import { withBase } from '../lib/paths';
+
+const { currencySymbol } = business.rates;
 ---
 
 <BaseLayout
   title="About | Yong's Tutoring"
-  description="Yong is an Economics, Finance and Data Science student at Imperial College London with A*AAA at A-level, tutoring maths and economics online for GCSE and A-level."
+  description="Yong's Tutoring is an online one to one tutoring service for GCSE and A-level maths, economics, biology and chemistry, taught by a small team of tutors from Imperial and Cambridge."
   path="/about/"
 >
   <section class="section section--petrol">
     <div class="wrap">
-      <span class="eyebrow">About</span>
+      <span class="eyebrow">About us</span>
       <h1>About Yong's Tutoring</h1>
       <p class="lede" style="color: var(--stone);">
-        One to one online tutoring in maths and economics for GCSE and A-level,
-        taught by an Imperial College London student who sat these exams recently
-        and knows what they take.
+        Yong's Tutoring is an online one to one tutoring service for GCSE and
+        A-level maths, economics, biology and chemistry. We pair students with a
+        specialist tutor and focus on real understanding and exam technique, not
+        just cramming.
       </p>
     </div>
   </section>
@@ -25,51 +28,70 @@ import { withBase } from '../lib/paths';
   <section class="section section--stone">
     <div class="wrap about-body">
       <div class="about-main">
-        <h2>Meet {leadTutor.name}</h2>
-        {leadTutor.bio.map((p) => <p>{p}</p>)}
-
-        <h2>How I teach</h2>
+        <h2>What we do</h2>
         <p>
-          Lessons start with the topics holding you back, then build across the
-          full specification with real past paper practice. Everything is one to
-          one and online, matched to your exam board, so the work is exactly what
-          you sit.
+          We teach maths, economics, biology and chemistry at GCSE and A-level,
+          one to one and online, across all exam boards. Every student is matched
+          with a tutor who knows the subject well and has sat these exams recently,
+          so lessons are relevant and up to date.
         </p>
 
-        <h2>Why it helps to learn from a recent student</h2>
+        <h2>How we teach</h2>
         <p>
-          I sat these exams recently and achieved A*AAA, so I know the
-          specifications, the common pitfalls and the exam technique that makes the
-          difference. As an Economics, Finance and Data Science student at Imperial,
-          I teach maths and economics from a genuine working knowledge of both.
+          Lessons start with the topics holding you back, then build across the
+          full specification with real past paper practice. We teach the method
+          properly and the exam technique that turns knowledge into marks, matched
+          to your exam board and the papers you actually sit.
+        </p>
+
+        <h2>How lessons work</h2>
+        <p>
+          Lessons run one to one over video with a shared whiteboard, so we work
+          through problems together in real time and you keep the worked solutions
+          afterwards. Sessions are online and flexible, so they fit around school
+          wherever you are in the UK. GCSE is {currencySymbol}{business.rates.gcse} an
+          hour and A-level is {currencySymbol}{business.rates.alevel} an hour.
+        </p>
+
+        <h2>Our tutors</h2>
+        <p>
+          We are a small, hand picked team. Our tutors study at leading
+          universities, including Imperial College London and the University of
+          Cambridge, and were achieving top grades in these subjects themselves not
+          long ago. You can read each tutor's background on the
+          {' '}<a href={withBase('/tutors/')}>tutors page</a>.
         </p>
       </div>
 
       <aside class="about-side">
         <div class="schedule">
           <div class="schedule__head">
-            <span>{leadTutor.name}</span>
-            <span>Tutor</span>
+            <span>Yong's Tutoring</span>
+            <span>At a glance</span>
           </div>
           <div class="schedule__row">
-            <span class="schedule__label">University</span>
-            <span class="schedule__value">{leadTutor.credentials.university}</span>
+            <span class="schedule__label">Subjects</span>
+            <span class="schedule__value">Maths, economics, biology, chemistry</span>
           </div>
           <div class="schedule__row">
-            <span class="schedule__label">Course</span>
-            <span class="schedule__value">{leadTutor.credentials.course}</span>
+            <span class="schedule__label">Levels</span>
+            <span class="schedule__value">GCSE and A-level</span>
           </div>
           <div class="schedule__row">
-            <span class="schedule__label">A-levels</span>
-            <span class="schedule__value">{leadTutor.credentials.alevels}</span>
+            <span class="schedule__label">Format</span>
+            <span class="schedule__value">One to one, online</span>
           </div>
           <div class="schedule__row">
-            <span class="schedule__label">Experience</span>
-            <span class="schedule__value">{leadTutor.credentials.experienceYears} years</span>
+            <span class="schedule__label">Exam boards</span>
+            <span class="schedule__value">All</span>
           </div>
           <div class="schedule__row">
-            <span class="schedule__label">Teaches</span>
-            <span class="schedule__value">Maths and economics</span>
+            <span class="schedule__label">Rates</span>
+            <span class="schedule__value">From {currencySymbol}{business.rates.gcse}/hour</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Tutors</span>
+            <span class="schedule__value">{tutors.length}, from Imperial and Cambridge</span>
           </div>
         </div>
       </aside>
@@ -78,14 +100,14 @@ import { withBase } from '../lib/paths';
 
   <section class="section section--petrol">
     <div class="wrap">
-      <h2>Book a lesson</h2>
+      <h2>Book a first lesson</h2>
       <p class="lede" style="color: var(--stone);">
-        Message {business.phoneDisplay} on WhatsApp or email {business.email} to
-        arrange a first lesson. Lessons are {business.areaServedDisplay}.
+        Message {business.phoneDisplay} on WhatsApp or email {business.email} and
+        we will match you with the right tutor. Lessons are {business.areaServedDisplay}.
       </p>
       <div class="about-actions">
-        <a class="btn btn--primary" href={business.whatsappHref}>Book a lesson</a>
-        <a class="btn btn--ghost" href={withBase('/subjects/')}>See subjects</a>
+        <a class="btn btn--primary" href={withBase('/contact/')}>Book a consult</a>
+        <a class="btn btn--ghost" href={withBase('/tutors/')}>Meet the tutors</a>
       </div>
     </div>
   </section>

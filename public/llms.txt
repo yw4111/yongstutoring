@@ -19,23 +19,23 @@ Yong's Tutoring is online only and one to one. It teaches maths, economics, biol
 
 ## Pages
 
-- Home: https://yongstutoring.co.uk/
-- Subjects overview: https://yongstutoring.co.uk/subjects/
-- A-level Maths: https://yongstutoring.co.uk/subjects/a-level-maths/
-- A-level Economics: https://yongstutoring.co.uk/subjects/a-level-economics/
-- GCSE Maths: https://yongstutoring.co.uk/subjects/gcse-maths/
-- GCSE Economics: https://yongstutoring.co.uk/subjects/gcse-economics/
-- A-level Biology: https://yongstutoring.co.uk/subjects/a-level-biology/
-- A-level Chemistry: https://yongstutoring.co.uk/subjects/a-level-chemistry/
-- GCSE Biology: https://yongstutoring.co.uk/subjects/gcse-biology/
-- GCSE Chemistry: https://yongstutoring.co.uk/subjects/gcse-chemistry/
-- A-level Physics: https://yongstutoring.co.uk/subjects/a-level-physics/
-- GCSE Physics: https://yongstutoring.co.uk/subjects/gcse-physics/
-- A-level Further Maths: https://yongstutoring.co.uk/subjects/a-level-further-maths/
-- Economics interview prep: https://yongstutoring.co.uk/subjects/oxbridge-economics-interview/
-- Medicine interview prep: https://yongstutoring.co.uk/subjects/medicine-interview/
-- Tutors: https://yongstutoring.co.uk/tutors/
-- About: https://yongstutoring.co.uk/about/
-- Pricing: https://yongstutoring.co.uk/pricing/
-- Resources: https://yongstutoring.co.uk/resources/
-- Contact: https://yongstutoring.co.uk/contact/
+- Home: https://yongstutoring.com/
+- Subjects overview: https://yongstutoring.com/subjects/
+- A-level Maths: https://yongstutoring.com/subjects/a-level-maths/
+- A-level Economics: https://yongstutoring.com/subjects/a-level-economics/
+- GCSE Maths: https://yongstutoring.com/subjects/gcse-maths/
+- GCSE Economics: https://yongstutoring.com/subjects/gcse-economics/
+- A-level Biology: https://yongstutoring.com/subjects/a-level-biology/
+- A-level Chemistry: https://yongstutoring.com/subjects/a-level-chemistry/
+- GCSE Biology: https://yongstutoring.com/subjects/gcse-biology/
+- GCSE Chemistry: https://yongstutoring.com/subjects/gcse-chemistry/
+- A-level Physics: https://yongstutoring.com/subjects/a-level-physics/
+- GCSE Physics: https://yongstutoring.com/subjects/gcse-physics/
+- A-level Further Maths: https://yongstutoring.com/subjects/a-level-further-maths/
+- Economics interview prep: https://yongstutoring.com/subjects/oxbridge-economics-interview/
+- Medicine interview prep: https://yongstutoring.com/subjects/medicine-interview/
+- Tutors: https://yongstutoring.com/tutors/
+- About: https://yongstutoring.com/about/
+- Pricing: https://yongstutoring.com/pricing/
+- Resources: https://yongstutoring.com/resources/
+- Contact: https://yongstutoring.com/contact/

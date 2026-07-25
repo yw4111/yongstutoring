@@ -28,4 +28,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://yongstutoring.co.uk/sitemap-index.xml
+Sitemap: https://yongstutoring.com/sitemap-index.xml

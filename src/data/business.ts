@@ -6,7 +6,7 @@ export const business = {
   tagline: 'Online tutoring in maths, science and economics',
   descriptionShort:
     "Yong's Tutoring provides online one to one tutoring in maths, further maths, economics, biology, chemistry and physics at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation.",
-  url: 'https://yongstutoring.co.uk', // TODO: confirm final domain
+  url: 'https://yongstutoring.com',
   phoneDisplay: '07846 663339',
   phoneHref: '+447846663339',
   whatsappHref: 'https://wa.me/447846663339',

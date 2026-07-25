@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { business } from '../data/business';
-import { tutors } from '../data/tutors';
 import { withBase } from '../lib/paths';
 
 const { currencySymbol } = business.rates;
@@ -9,7 +8,7 @@ const { currencySymbol } = business.rates;
 
 <BaseLayout
   title="About | Yong's Tutoring"
-  description="Yong's Tutoring is an online one to one tutoring service for GCSE and A-level maths, economics, biology and chemistry, taught by a small team of tutors from Imperial and Cambridge."
+  description="Yong's Tutoring is an online one to one tutoring service for GCSE and A-level maths, further maths, economics, biology, chemistry and physics, taught by a small team of tutors from Imperial and Cambridge."
   path="/about/"
 >
   <section class="section section--petrol">
@@ -75,11 +74,11 @@ const { currencySymbol } = business.rates;
           </div>
           <div class="schedule__row">
             <span class="schedule__label">Subjects</span>
-            <span class="schedule__value">Maths, further maths, economics, biology, chemistry, physics</span>
+            <span class="schedule__value">Maths, Further Maths, Economics, Biology, Chemistry, Physics</span>
           </div>
           <div class="schedule__row">
             <span class="schedule__label">Levels</span>
-            <span class="schedule__value">GCSE, A-level, interview prep</span>
+            <span class="schedule__value">GCSE, A-level, Interview Preparation</span>
           </div>
           <div class="schedule__row">
             <span class="schedule__label">Format</span>
@@ -95,7 +94,7 @@ const { currencySymbol } = business.rates;
           </div>
           <div class="schedule__row">
             <span class="schedule__label">Tutors</span>
-            <span class="schedule__value">{tutors.length}, from Imperial and Cambridge</span>
+            <span class="schedule__value">Hand-selected from top universities like Imperial and Cambridge</span>
           </div>
         </div>
       </aside>

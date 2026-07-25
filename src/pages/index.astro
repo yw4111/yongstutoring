@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Placeholder from '../components/Placeholder.astro';
+import TutorPhoto from '../components/TutorPhoto.astro';
 import FaqBlock from '../components/FaqBlock.astro';
 import { business } from '../data/business';
 import { subjects } from '../data/subjects';
@@ -81,7 +82,7 @@ const tiers = [
         {
           tutors.map((t) => (
             <a class="tprev" href={withBase(`/tutors/${t.slug}/`)}>
-              <Placeholder ratio="1 / 1" label={`Photo of ${t.name}`} class="tprev__photo" />
+              <TutorPhoto photo={t.photo} name={t.name} class="tprev__photo" />
               <div>
                 <span class="tprev__name">{t.name}</span>
                 <span class="tprev__role">{t.role}</span>

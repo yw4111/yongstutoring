@@ -48,6 +48,7 @@ export const tutors: Tutor[] = [
       alevels: 'A*AAA',
       experienceYears: 2,
     },
+    photo: '/tutors/yong.jpg',
   },
   {
     slug: 'ryan',
@@ -106,6 +107,7 @@ export const tutors: Tutor[] = [
       course: 'Electrical and Electronic Engineering',
       alevels: 'A* in Maths, Further Maths, Physics and Chemistry',
     },
+    photo: '/tutors/yiming.jpg',
   },
 ];
 

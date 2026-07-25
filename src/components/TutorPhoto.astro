@@ -1,0 +1,38 @@
+---
+// Renders a tutor's real photo if they have one, otherwise the placeholder.
+// Drop a photo in and set the tutor's `photo` path in src/data/tutors.ts.
+import Placeholder from './Placeholder.astro';
+import { withBase } from '../lib/paths';
+
+interface Props {
+  photo?: string;
+  name: string;
+  ratio?: string;
+  class?: string;
+}
+const { photo, name, ratio = '1 / 1', class: cls = '' } = Astro.props;
+---
+
+{
+  photo ? (
+    <img
+      src={withBase(photo)}
+      alt={`Photo of ${name}`}
+      class={`tphoto ${cls}`}
+      style={`aspect-ratio:${ratio}`}
+      loading="lazy"
+      decoding="async"
+    />
+  ) : (
+    <Placeholder ratio={ratio} label={`Photo of ${name}`} class={cls} />
+  )
+}
+
+<style>
+  .tphoto {
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+    display: block;
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Placeholder from '../../components/Placeholder.astro';
+import TutorPhoto from '../../components/TutorPhoto.astro';
 import { business } from '../../data/business';
 import { tutors } from '../../data/tutors';
 import { subjects } from '../../data/subjects';
@@ -27,7 +27,7 @@ const subjectName = (slug: string) => subjects.find((s) => s.slug === slug)?.sho
         {
           tutors.map((t) => (
             <a class="tutor-card" href={withBase(`/tutors/${t.slug}/`)}>
-              <Placeholder ratio="1 / 1" label={`Photo of ${t.name}`} class="tutor-card__photo" />
+              <TutorPhoto photo={t.photo} name={t.name} class="tutor-card__photo" />
               <div class="tutor-card__body">
                 <h2 class="tutor-card__name">{t.name}</h2>
                 <p class="tutor-card__role">{t.role}</p>

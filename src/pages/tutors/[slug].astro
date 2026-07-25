@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Placeholder from '../../components/Placeholder.astro';
+import TutorPhoto from '../../components/TutorPhoto.astro';
 import { business } from '../../data/business';
 import { tutors } from '../../data/tutors';
 import { subjects } from '../../data/subjects';
@@ -26,7 +26,7 @@ const { currencySymbol } = business.rates;
   <article class="section">
     <div class="wrap tutor-profile">
       <div class="tutor-profile__head">
-        <Placeholder ratio="1 / 1" label={`Photo of ${tutor.name}`} class="tutor-profile__photo" />
+        <TutorPhoto photo={tutor.photo} name={tutor.name} class="tutor-profile__photo" />
         <div>
           <p class="breadcrumb"><a href={withBase('/tutors/')}>Tutors</a></p>
           <h1>{tutor.name}</h1>

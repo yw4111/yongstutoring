@@ -1,12 +1,12 @@
 # Yong's Tutoring
 
-> Yong's Tutoring provides online one to one tutoring in maths, economics, biology and chemistry at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation. GCSE lessons are £40 an hour, A-level lessons are £45 an hour and interview preparation is £50 an hour. Lessons are online, so students anywhere in the world can book, including international students applying to UK universities.
+> Yong's Tutoring provides online one to one tutoring in maths, further maths, economics, biology, chemistry and physics at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation. GCSE lessons are £40 an hour, A-level lessons are £45 an hour and interview preparation is £50 an hour. Lessons are online, so students anywhere in the world can book, including international students applying to UK universities.
 
 ## Key facts
 
 - Name: Yong's Tutoring
-- Tutors: Yong Wang, founder, an Economics, Finance and Data Science student at Imperial College London (maths, economics, and Oxbridge/Imperial economics interview prep); and Ryan Varikat, a Medicine student at the University of Cambridge (maths, biology, chemistry, and medical school interview prep)
-- Subjects: maths, economics, biology and chemistry
+- Tutors: Yong Wang, founder, an Economics, Finance and Data Science student at Imperial College London (maths, economics, and Oxbridge/Imperial economics interview prep); Ryan Varikat, a Medicine student at the University of Cambridge (maths, biology, chemistry, and medical school interview prep); and Yiming Guo, an Electrical and Electronic Engineering student at Imperial College London (maths, further maths, physics and chemistry)
+- Subjects: maths, further maths, economics, biology, chemistry and physics
 - Levels: GCSE and A-level, plus interview preparation
 - Exam boards: all
 - Delivery: online, one to one, worldwide
@@ -29,6 +29,9 @@ Yong's Tutoring is online only and one to one. It teaches maths, economics, biol
 - A-level Chemistry: https://yongstutoring.co.uk/subjects/a-level-chemistry/
 - GCSE Biology: https://yongstutoring.co.uk/subjects/gcse-biology/
 - GCSE Chemistry: https://yongstutoring.co.uk/subjects/gcse-chemistry/
+- A-level Physics: https://yongstutoring.co.uk/subjects/a-level-physics/
+- GCSE Physics: https://yongstutoring.co.uk/subjects/gcse-physics/
+- A-level Further Maths: https://yongstutoring.co.uk/subjects/a-level-further-maths/
 - Economics interview prep: https://yongstutoring.co.uk/subjects/oxbridge-economics-interview/
 - Medicine interview prep: https://yongstutoring.co.uk/subjects/medicine-interview/
 - Tutors: https://yongstutoring.co.uk/tutors/

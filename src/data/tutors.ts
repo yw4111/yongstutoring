@@ -10,6 +10,8 @@ export interface Tutor {
   bio: string[];
   /** Short factual highlights for the profile. */
   highlights?: string[];
+  /** Social / professional profiles, used for schema sameAs. */
+  sameAs?: { label: string; href: string }[];
   /** Credentials, kept factual. */
   credentials: {
     university?: string;
@@ -74,6 +76,35 @@ export const tutors: Tutor[] = [
       university: 'University of Cambridge',
       course: 'Medicine',
       alevels: 'A*A*A* in Maths, Biology and Chemistry',
+    },
+  },
+  {
+    slug: 'yiming',
+    name: 'Yiming Guo',
+    role: 'Science & maths tutor',
+    subjects: [
+      'a-level-further-maths',
+      'a-level-maths',
+      'a-level-physics',
+      'a-level-chemistry',
+      'gcse-maths',
+      'gcse-physics',
+      'gcse-chemistry',
+    ],
+    bio: [
+      'Yiming Guo is an Electrical and Electronic Engineering student at Imperial College London. He tutors chemistry, physics, maths and further maths at GCSE and A-level.',
+      'He achieved four A*s at A-level, teaches across all exam boards and works one to one online. He also runs Yimtegral, a large educational maths TikTok, so he is used to explaining tricky ideas clearly.',
+    ],
+    highlights: [
+      'Electrical and Electronic Engineering, Imperial College London',
+      'A* in Maths, Further Maths, Physics and Chemistry at A-level',
+      'Runs the educational maths TikTok, Yimtegral',
+    ],
+    sameAs: [{ label: 'TikTok: @yimtegral', href: 'https://www.tiktok.com/@yimtegral' }],
+    credentials: {
+      university: 'Imperial College London',
+      course: 'Electrical and Electronic Engineering',
+      alevels: 'A* in Maths, Further Maths, Physics and Chemistry',
     },
   },
 ];

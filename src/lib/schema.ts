@@ -33,7 +33,7 @@ export function organizationSchema() {
     telephone: business.phoneHref,
     priceRange: business.priceRange,
     areaServed,
-    knowsAbout: ['Maths', 'Economics', 'Biology', 'Chemistry', 'GCSE tutoring', 'A-level tutoring', 'Online tutoring'],
+    knowsAbout: ['Maths', 'Further Maths', 'Economics', 'Biology', 'Chemistry', 'Physics', 'GCSE tutoring', 'A-level tutoring', 'Online tutoring'],
     founder: { '@id': tutorId(leadTutor.slug) },
     makesOffer: [
       {
@@ -93,6 +93,9 @@ export function tutorPersonSchema(tutor: Tutor) {
       '@type': 'CollegeOrUniversity',
       name: tutor.credentials.university,
     };
+  }
+  if (tutor.sameAs?.length) {
+    node.sameAs = tutor.sameAs.map((s) => s.href);
   }
   return node;
 }

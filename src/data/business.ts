@@ -5,7 +5,7 @@ export const business = {
   legalName: "Yong's Tutoring",
   tagline: 'Online tutoring in maths, science and economics',
   descriptionShort:
-    "Yong's Tutoring provides online one to one tutoring in maths, economics, biology and chemistry at GCSE and A-level, across all exam boards.",
+    "Yong's Tutoring provides online one to one tutoring in maths, further maths, economics, biology, chemistry and physics at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation.",
   url: 'https://yongstutoring.co.uk', // TODO: confirm final domain
   phoneDisplay: '07846 663339',
   phoneHref: '+447846663339',
@@ -28,6 +28,12 @@ export const business = {
   // Formspree form is created at formspree.io and its ID pasted here.
   // TODO: replace YOUR_FORM_ID with the real Formspree form ID.
   formEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
+  // Analytics: paste the Cloudflare Web Analytics beacon token here to switch on
+  // the traffic dashboard. Leave empty to disable (no script loads).
+  cloudflareAnalyticsToken: '',
+  // Google Search Console verification token (the content of the
+  // google-site-verification meta tag). Leave empty to disable.
+  googleSiteVerification: '',
   // Not published yet. Placeholders for the owner to supply: testimonials and
   // social/professional profiles (sameAs). Nothing invented.
   sameAs: [] as string[],

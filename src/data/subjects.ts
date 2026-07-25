@@ -7,7 +7,14 @@ export interface Subject {
   /** Short label for cards and nav */
   shortName: string;
   level: 'GCSE' | 'A-level' | 'Admissions';
-  subject: 'Maths' | 'Economics' | 'Biology' | 'Chemistry' | 'Interview prep';
+  subject:
+    | 'Maths'
+    | 'Further Maths'
+    | 'Economics'
+    | 'Biology'
+    | 'Chemistry'
+    | 'Physics'
+    | 'Interview prep';
   /** Hourly rate in pounds */
   rate: number;
   /** One line for the overview grid */
@@ -46,7 +53,7 @@ export const subjects: Subject[] = [
       'A-level maths steps up sharply from GCSE, and most students find one or two areas that hold the rest back. Lessons focus on those first, then build out to the full specification with plenty of past paper work.',
       'Teaching is one to one and online, so sessions fit around school and can be booked when you need them. We teach across all exam boards, so the work matches the papers you sit.',
     ],
-    tutorSlugs: ['yong', 'ryan'],
+    tutorSlugs: ['yong', 'ryan', 'yiming'],
     faqs: [
       {
         question: 'How much is A-level maths tutoring?',
@@ -118,7 +125,7 @@ export const subjects: Subject[] = [
       'GCSE maths covers a lot of ground, and confidence often comes down to filling a few specific gaps. Lessons find those gaps, work through them, then build up with past paper practice.',
       'Teaching is one to one and online across all exam boards, for both foundation and higher tier, so the work matches the paper you sit and the grade you are aiming for.',
     ],
-    tutorSlugs: ['yong', 'ryan'],
+    tutorSlugs: ['yong', 'ryan', 'yiming'],
     faqs: [
       {
         question: 'How much is GCSE maths tutoring?',
@@ -226,7 +233,7 @@ export const subjects: Subject[] = [
       'A-level chemistry rewards a secure grasp of a few core ideas that appear everywhere: moles and calculations, bonding, energetics and mechanisms. Lessons make those solid, then apply them across the specification.',
       'Teaching is one to one and online across all exam boards, matched to your specification and past papers. Taught by a Cambridge medicine student who took chemistry to A*.',
     ],
-    tutorSlugs: ['ryan'],
+    tutorSlugs: ['ryan', 'yiming'],
     faqs: [
       {
         question: 'How much is A-level chemistry tutoring?',
@@ -298,7 +305,7 @@ export const subjects: Subject[] = [
       'GCSE chemistry mixes ideas with calculations, and students often lose marks on the quantitative parts. Lessons make the calculations routine and keep the theory clear and applied.',
       'Teaching is one to one and online across all exam boards, for combined and triple science, matched to the paper you sit.',
     ],
-    tutorSlugs: ['ryan'],
+    tutorSlugs: ['ryan', 'yiming'],
     faqs: [
       {
         question: 'How much is GCSE chemistry tutoring?',
@@ -309,6 +316,114 @@ export const subjects: Subject[] = [
         question: 'Do you help with the calculations?',
         answer:
           'Yes. Lessons give plenty of practice on the quantitative chemistry that students find hardest.',
+      },
+    ],
+  },
+  {
+    slug: 'a-level-physics',
+    name: 'A-level Physics tutoring',
+    shortName: 'A-level Physics',
+    level: 'A-level',
+    subject: 'Physics',
+    rate: 45,
+    summary: 'One to one A-level physics tutoring online, across all exam boards.',
+    directAnswer:
+      "Yong's Tutoring offers online one to one A-level physics tutoring for £45 an hour, across all exam boards. Lessons cover mechanics, fields, waves and nuclear physics, with a focus on the calculations, required practicals and exam technique that carry the marks.",
+    covered: [
+      'Mechanics, materials and waves',
+      'Electricity and circuits',
+      'Fields: gravitational, electric and magnetic',
+      'Nuclear and particle physics',
+      'Required practicals and data analysis',
+      'Past paper and exam technique practice',
+    ],
+    detail: [
+      'A-level physics rewards a secure grasp of a few big ideas and confident maths. Lessons make the core concepts and the calculations solid, then apply them across the specification.',
+      'Teaching is one to one and online across all exam boards, matched to your specification and past papers. Taught by an Imperial engineering student who took physics to A*.',
+    ],
+    tutorSlugs: ['yiming'],
+    faqs: [
+      {
+        question: 'How much is A-level physics tutoring?',
+        answer:
+          'A-level physics tutoring is £45 an hour, one to one and online.',
+      },
+      {
+        question: 'Do you help with the maths in physics?',
+        answer:
+          'Yes. Lessons build the calculation skills physics relies on, which is where many students lose marks.',
+      },
+    ],
+  },
+  {
+    slug: 'a-level-further-maths',
+    name: 'A-level Further Maths tutoring',
+    shortName: 'A-level Further Maths',
+    level: 'A-level',
+    subject: 'Further Maths',
+    rate: 45,
+    summary: 'One to one A-level further maths tutoring online, across all exam boards.',
+    directAnswer:
+      "Yong's Tutoring offers online one to one A-level further maths tutoring for £45 an hour, across all exam boards. Lessons cover the core pure content and your optional modules, built around the topics and past papers you need to work on most.",
+    covered: [
+      'Complex numbers and matrices',
+      'Further algebra and calculus',
+      'Differential equations',
+      'Further mechanics or statistics options',
+      'Decision maths where relevant',
+      'Past paper and exam technique practice',
+    ],
+    detail: [
+      'Further maths goes faster and deeper than A-level maths, and the ideas build on each other quickly. Lessons keep the foundations secure and work through the harder topics step by step.',
+      'Teaching is one to one and online across all exam boards, matched to your specification and optional modules. Taught by an Imperial engineering student with four A*s at A-level.',
+    ],
+    tutorSlugs: ['yiming'],
+    faqs: [
+      {
+        question: 'How much is A-level further maths tutoring?',
+        answer:
+          'A-level further maths tutoring is £45 an hour, one to one and online.',
+      },
+      {
+        question: 'Do you cover the different optional modules?',
+        answer:
+          'Yes. Lessons are matched to your exam board and the optional modules you are taking, such as further mechanics or further statistics.',
+      },
+    ],
+  },
+  {
+    slug: 'gcse-physics',
+    name: 'GCSE Physics tutoring',
+    shortName: 'GCSE Physics',
+    level: 'GCSE',
+    subject: 'Physics',
+    rate: 40,
+    summary: 'One to one GCSE physics tutoring online, all exam boards, combined and triple science.',
+    directAnswer:
+      "Yong's Tutoring offers online one to one GCSE physics tutoring for £40 an hour, across all exam boards, for both combined and triple science. Lessons cover the full syllabus and focus on the topics, calculations and grades you are working towards.",
+    covered: [
+      'Forces and motion',
+      'Energy and power',
+      'Waves, light and sound',
+      'Electricity and magnetism',
+      'Particle model and atomic structure',
+      'Required practicals and exam technique',
+    ],
+    detail: [
+      'GCSE physics combines ideas with calculations, and marks are often lost on the maths and the required practicals. Lessons make the calculations routine and keep the concepts clear.',
+      'Teaching is one to one and online across all exam boards, for combined and triple science, matched to the paper you sit.',
+    ],
+    tutorSlugs: ['yiming'],
+    faqs: [
+      {
+        question: 'How much is GCSE physics tutoring?',
+        answer:
+          'GCSE physics tutoring is £40 an hour, one to one and online.',
+      },
+      {
+        question: 'Do you cover combined and triple science?',
+        answer:
+          'Yes. Lessons cover both combined science and triple (separate) physics across all exam boards.',
       },
     ],
   },

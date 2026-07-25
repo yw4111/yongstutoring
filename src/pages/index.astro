@@ -5,14 +5,12 @@ import FaqBlock from '../components/FaqBlock.astro';
 import { business } from '../data/business';
 import { subjects } from '../data/subjects';
 import { tutors, leadTutor } from '../data/tutors';
-import { posts } from '../data/posts';
 import { homeFaqs } from '../data/faqs';
 import { faqSchema } from '../lib/schema';
 import { withBase } from '../lib/paths';
 
 const schema = [faqSchema(homeFaqs)];
 const { currencySymbol } = business.rates;
-const recentPosts = [...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 
 const tiers = [
   {
@@ -139,30 +137,6 @@ const tiers = [
         <div class="why-item"><h3>Recent top grades</h3><p>Top A-level grades and recent exam experience, so lessons come from people who sat these papers not long ago.</p></div>
         <div class="why-item"><h3>Built around you</h3><p>Lessons start with the topics holding you back, matched to your exam board and past papers.</p></div>
         <div class="why-item"><h3>Flexible and online</h3><p>One to one over video, so lessons fit around school wherever you are in the UK.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESOURCES -->
-  <section class="section" id="blog">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Resources</p>
-        <h2>From the blog</h2>
-      </div>
-      <div class="posts-grid">
-        {
-          recentPosts.map((p) => (
-            <a class="post-card" href={withBase(`/resources/${p.slug}/`)}>
-              <Placeholder ratio="16 / 9" label="Photo" class="post-card__photo" />
-              <div class="post-card__body">
-                <h3>{p.title}</h3>
-                <p>{p.excerpt}</p>
-                <span class="post-card__cta" aria-hidden="true">Read more &rarr;</span>
-              </div>
-            </a>
-          ))
-        }
       </div>
     </div>
   </section>

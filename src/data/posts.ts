@@ -12,7 +12,11 @@ export interface Post {
   body: string[];
 }
 
-export const posts: Post[] = [
+// Resources are being added later by the owner. Empty for now, so the resources
+// page shows a "coming soon" placeholder and no posts are generated.
+export const posts: Post[] = [];
+
+const _draftPosts: Post[] = [
   {
     slug: 'how-to-revise-for-a-level-maths',
     title: 'How to revise for A-level maths',

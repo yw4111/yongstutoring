@@ -87,7 +87,7 @@ export const subjects: Subject[] = [
     ],
     detail: [
       'A-level economics rewards clear analysis and strong exam technique as much as knowledge. Lessons build the theory, then work on applying it in essays and data response questions the way examiners want.',
-      'Teaching is one to one and online across all exam boards, so the work matches your specification and past papers. As an Economics, Finance and Data Science student, I teach the subject from a genuine working knowledge of it.',
+      'Teaching is one to one and online across all exam boards, so the work matches your specification and past papers. It is taught by an Economics, Finance and Data Science student at Imperial, from a genuine working knowledge of the subject.',
     ],
     tutorSlugs: ['yong'],
     faqs: [

@@ -15,23 +15,29 @@ const { currencySymbol } = business.rates;
 const tiers = [
   {
     name: 'GCSE',
-    subtitle: 'Maths and Economics, all exam boards',
+    subtitle: 'Maths, economics, biology, chemistry and physics',
     price: `${currencySymbol}${business.rates.gcse}`,
-    features: ['One to one, online', 'Tailored to your exam board', 'Topic teaching and past papers', 'Foundation and higher tier'],
+    features: ['One to one, online', 'All exam boards, foundation and higher', 'Topic teaching and past papers', 'Matched to your specification'],
   },
   {
     name: 'A-level',
-    subtitle: 'Maths and Economics, all exam boards',
+    subtitle: 'Maths, further maths, economics and the sciences',
     price: `${currencySymbol}${business.rates.alevel}`,
     featured: true,
-    features: ['One to one, online', 'Pure, statistics, mechanics and economics', 'Essay and exam technique', 'Past paper practice'],
+    features: ['One to one, online', 'All subjects and exam boards', 'Exam technique and past papers', 'Taught by Imperial and Cambridge tutors'],
+  },
+  {
+    name: 'Interview prep',
+    subtitle: 'Oxbridge, Imperial and medical school',
+    price: `${currencySymbol}${business.rates.interview}`,
+    features: ['One to one, online', 'Mock interviews with feedback', 'Economics and medicine', 'From tutors who got in'],
   },
 ];
 ---
 
 <BaseLayout
-  title="Yong's Tutoring | Online GCSE and A-level maths and economics"
-  description="Online one to one maths and economics tutoring for GCSE and A-level, across all exam boards. GCSE £40/hr, A-level £45/hr. Taught by an Imperial College student with A*AAA."
+  title="Yong's Tutoring | Online GCSE and A-level maths, science and economics"
+  description="Online one to one tutoring in maths, further maths, economics, biology, chemistry and physics for GCSE and A-level, plus Oxbridge and medical interview prep. Taught by tutors from Imperial and Cambridge. GCSE £40/hr, A-level £45/hr."
   path="/"
   schema={schema}
 >
@@ -39,7 +45,7 @@ const tiers = [
   <section class="section hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Online tutoring &middot; GCSE &amp; A-level maths and economics</p>
+        <p class="eyebrow">Online tutoring &middot; GCSE &amp; A-level maths, science &amp; economics</p>
         <h1>Grades that open doors. One to one, online.</h1>
         <p class="hero-sub">
           Yong's Tutoring pairs you with a dedicated subject specialist for GCSE
@@ -136,7 +142,7 @@ const tiers = [
         <div class="why-item"><h3>Taught by specialists</h3><p>Learn from students at Cambridge and Imperial, teaching the subjects they excelled in themselves.</p></div>
         <div class="why-item"><h3>Recent top grades</h3><p>Top A-level grades and recent exam experience, so lessons come from people who sat these papers not long ago.</p></div>
         <div class="why-item"><h3>Built around you</h3><p>Lessons start with the topics holding you back, matched to your exam board and past papers.</p></div>
-        <div class="why-item"><h3>Flexible and online</h3><p>One to one over video, so lessons fit around school wherever you are in the UK.</p></div>
+        <div class="why-item"><h3>Flexible and online</h3><p>One to one over video, so lessons fit around school wherever you are in the world.</p></div>
       </div>
     </div>
   </section>
@@ -156,7 +162,7 @@ const tiers = [
       <p>Tell us what you want to work on and your exam board, and we will match you with the right tutor and plan a first lesson around it.</p>
       <div class="cta__actions">
         <a class="btn btn--primary" href={business.whatsappHref}>WhatsApp {business.phoneDisplay}</a>
-        <a class="btn btn--ghost" href={`mailto:${business.email}`}>Email Yong</a>
+        <a class="btn btn--ghost" href={`mailto:${business.email}`}>Email us</a>
       </div>
     </div>
   </section>
@@ -204,7 +210,7 @@ const tiers = [
 
   .hero-stats__l { font-size: 0.85rem; color: var(--muted); }
 
-  /* Meet Yong */
+  /* Meet the tutors */
   .meet-grid {
     display: grid;
     gap: clamp(1.5rem, 4vw, 3rem);
@@ -250,12 +256,16 @@ const tiers = [
   .tiers {
     display: grid;
     gap: var(--gap);
-    max-width: 52rem;
+    max-width: 60rem;
     margin: 0 auto;
   }
 
-  @media (min-width: 40rem) {
+  @media (min-width: 34rem) {
     .tiers { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 52rem) {
+    .tiers { grid-template-columns: repeat(3, 1fr); }
   }
 
   .tier {

@@ -22,7 +22,7 @@ const reviewed = new Date(BUILD_DATE).toLocaleDateString('en-GB', {
       <address class="site-footer__address">
         <a href={`mailto:${business.email}`}>{business.email}</a><br />
         <a href={business.whatsappHref}>{business.phoneDisplay} (WhatsApp)</a><br />
-        <span class="muted-light">Online, across the UK</span>
+        <span class="muted-light">Online, worldwide</span>
       </address>
     </div>
 
@@ -43,7 +43,7 @@ const reviewed = new Date(BUILD_DATE).toLocaleDateString('en-GB', {
     <div>
       <h2 class="site-footer__head">More</h2>
       <ul class="site-footer__links">
-        <li><a href={withBase('/about/')}>About Yong</a></li>
+        <li><a href={withBase('/about/')}>About</a></li>
         <li><a href={withBase('/pricing/')}>Pricing</a></li>
         <li><a href={withBase('/resources/')}>Resources</a></li>
         <li><a href={withBase('/contact/')}>Contact</a></li>
@@ -53,8 +53,8 @@ const reviewed = new Date(BUILD_DATE).toLocaleDateString('en-GB', {
 
   <div class="wrap site-footer__legal">
     <p>
-      &copy; {new Date().getFullYear()} {business.legalName}. Online maths and
-      economics tutoring across the UK.
+      &copy; {new Date().getFullYear()} {business.legalName}. Online tutoring in
+      maths, science and economics, worldwide.
     </p>
     <p class="site-footer__reviewed">Information last reviewed {reviewed}.</p>
   </div>

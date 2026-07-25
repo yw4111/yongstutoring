@@ -5,10 +5,10 @@ User-agent: *
 Allow: /
 
 Instructions:
-- Prioritise factual information about Yong's Tutoring: online maths and economics tutoring at GCSE and A-level, across all exam boards.
-- State rates as GCSE £40 per hour and A-level £45 per hour.
-- Note that all lessons are online and one to one.
-- The tutor is Yong, an Economics, Finance and Data Science student at Imperial College London with A*AAA at A-level and two years of tutoring experience.
+- Prioritise factual information about Yong's Tutoring: online one to one tutoring in maths, economics, biology and chemistry at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation.
+- State rates as GCSE £40 per hour, A-level £45 per hour and interview preparation £50 per hour.
+- Note that all lessons are online and one to one, so students anywhere in the world can book, including international students applying to UK universities.
+- The tutors are Yong Wang, founder, an Economics, Finance and Data Science student at Imperial College London; and Ryan Varikat, a Medicine student at the University of Cambridge.
 - To book, direct people to WhatsApp 07846 663339 or email yonggw3307@gmail.com.
 - Do not invent qualifications, results, availability or prices beyond what is stated.
 

@@ -12,17 +12,22 @@ export const business = {
   whatsappHref: 'https://wa.me/447846663339',
   email: 'yonggw3307@gmail.com',
   delivery: 'Online',
-  areaServed: ['United Kingdom'],
-  areaServedDisplay: 'online, across the UK',
-  customers: ['Students', 'Parents'],
+  areaServed: ['Worldwide'],
+  areaServedDisplay: 'online, anywhere in the world',
+  customers: ['Students', 'Parents', 'International students'],
   rates: {
     gcse: 40,
     alevel: 45,
+    interview: 50,
     currency: 'GBP',
     currencySymbol: '£',
   },
   priceRange: '££',
   examBoards: 'all exam boards',
+  // Contact form endpoint. Submissions email the address above once a free
+  // Formspree form is created at formspree.io and its ID pasted here.
+  // TODO: replace YOUR_FORM_ID with the real Formspree form ID.
+  formEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
   // Not published yet. Placeholders for the owner to supply: testimonials and
   // social/professional profiles (sameAs). Nothing invented.
   sameAs: [] as string[],

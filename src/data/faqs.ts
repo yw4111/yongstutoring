@@ -5,24 +5,24 @@ export interface Faq {
 
 export const subjectsFaqs: Faq[] = [
   {
-    question: 'What subjects and levels does Yong tutor?',
+    question: 'What subjects does Yong’s Tutoring cover?',
     answer:
-      'Maths and economics, at GCSE and A-level, one to one and online across all exam boards.',
+      'Maths, economics, biology and chemistry at GCSE and A-level, one to one and online across all exam boards, plus Oxbridge, Imperial and medical school interview preparation.',
   },
   {
     question: 'How much does tutoring cost?',
     answer:
-      'GCSE tutoring is £40 an hour and A-level tutoring is £45 an hour. Lessons are one to one and online.',
+      'GCSE tutoring is £40 an hour, A-level tutoring is £45 an hour and interview preparation is £50 an hour. Lessons are one to one and online.',
   },
   {
     question: 'Are lessons online or in person?',
     answer:
-      'All lessons are online and one to one, so they fit around your schedule wherever you are in the UK.',
+      'All lessons are online and one to one, so we can teach students anywhere in the world, including international students planning to apply to UK universities.',
   },
   {
     question: 'Which exam boards do you cover?',
     answer:
-      'All exam boards. Lessons are matched to the specification and past papers you are working with.',
+      'All exam boards. Lessons are matched to the specification and past papers each student is working with.',
   },
 ];
 
@@ -30,27 +30,22 @@ export const homeFaqs: Faq[] = [
   {
     question: 'What does Yong’s Tutoring offer?',
     answer:
-      'Online one to one tutoring in maths and economics at GCSE and A-level, across all exam boards. GCSE is £40 an hour and A-level is £45 an hour.',
+      'Online one to one tutoring in maths, economics, biology and chemistry at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation. GCSE is £40 an hour, A-level is £45 and interview prep is £50.',
   },
   {
-    question: 'Are lessons online or in person?',
+    question: 'Where do you teach? Is it only in the UK?',
     answer:
-      'All lessons are online and one to one, so they fit around school and work wherever you are in the UK.',
+      'Lessons are online, so we teach students anywhere in the world. We work with international students planning to apply to UK universities as well as students in the UK.',
   },
   {
-    question: 'Who is the tutor?',
+    question: 'Who are the tutors?',
     answer:
-      'Yong, an Economics, Finance and Data Science student at Imperial College London, with A*AAA at A-level and two years of tutoring experience.',
+      'A small, hand picked team who study at leading universities, including Imperial College London and the University of Cambridge, and were achieving top grades in these subjects themselves recently. You can read each tutor’s background on the tutors page.',
   },
   {
     question: 'How much does tutoring cost?',
     answer:
-      'GCSE tutoring is £40 an hour and A-level tutoring is £45 an hour, one to one and online.',
-  },
-  {
-    question: 'How do I book a lesson?',
-    answer:
-      'Message 07846 663339 on WhatsApp or email yonggw3307@gmail.com to arrange a first lesson.',
+      'GCSE tutoring is £40 an hour, A-level tutoring is £45 an hour and interview preparation is £50 an hour, one to one and online.',
   },
   {
     question: 'How do online lessons work?',
@@ -58,9 +53,9 @@ export const homeFaqs: Faq[] = [
       'Lessons run over video with a shared whiteboard, so we work through problems together in real time and you keep the worked solutions afterwards. All you need is a laptop or tablet and a quiet space.',
   },
   {
-    question: 'Do you teach complete beginners and students who are struggling?',
+    question: 'How do I book a first lesson?',
     answer:
-      'Yes. Lessons start from where you are and focus first on the topics holding you back, then build up with exam practice at your pace.',
+      'Message 07846 663339 on WhatsApp, email yonggw3307@gmail.com or use the contact form, and we will match you with the right tutor.',
   },
 ];
 
@@ -68,7 +63,7 @@ export const pricingFaqs: Faq[] = [
   {
     question: 'How much does tutoring cost?',
     answer:
-      'GCSE tutoring is £40 an hour and A-level tutoring is £45 an hour, one to one and online.',
+      'GCSE tutoring is £40 an hour, A-level tutoring is £45 an hour and Oxbridge, Imperial and medical school interview preparation is £50 an hour, one to one and online.',
   },
   {
     question: 'How long is a lesson?',
@@ -78,11 +73,11 @@ export const pricingFaqs: Faq[] = [
   {
     question: 'How do I pay?',
     answer:
-      'Arrange a first lesson by WhatsApp on 07846 663339 or email yonggw3307@gmail.com, and payment details are sorted from there.',
+      'Arrange a first lesson by WhatsApp on 07846 663339, email yonggw3307@gmail.com or the contact form, and payment details are sorted from there.',
   },
   {
-    question: 'Do you offer a free consultation?',
+    question: 'Can international students book lessons?',
     answer:
-      'Get in touch to talk through what you want to work on, and we will plan the first lesson around it.',
+      'Yes. Because lessons are online, we teach students anywhere in the world, including those preparing to apply to UK universities.',
   },
 ];

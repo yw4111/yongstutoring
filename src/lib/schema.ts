@@ -48,6 +48,12 @@ export function organizationSchema() {
         price: business.rates.alevel,
         priceCurrency: business.rates.currency,
       },
+      {
+        '@type': 'Offer',
+        name: 'Interview preparation',
+        price: business.rates.interview,
+        priceCurrency: business.rates.currency,
+      },
     ],
     employee: tutors.map((t) => ({ '@id': tutorId(t.slug) })),
   };

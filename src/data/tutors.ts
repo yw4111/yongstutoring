@@ -26,19 +26,19 @@ export interface Tutor {
 export const tutors: Tutor[] = [
   {
     slug: 'yong',
-    name: 'Yong',
+    name: 'Yong Wang',
     lead: true,
     role: 'Founder & tutor',
-    subjects: ['a-level-maths', 'a-level-economics', 'gcse-maths', 'gcse-economics'],
+    subjects: ['a-level-maths', 'a-level-economics', 'gcse-maths', 'gcse-economics', 'oxbridge-economics-interview'],
     bio: [
-      'I am an Economics, Finance and Data Science student at Imperial College London, and I tutor maths and economics at GCSE and A-level.',
-      'I have tutored for two years and achieved A*AAA at A-level. I teach across all exam boards and work one to one online, so lessons fit around your schedule.',
+      'Yong Wang is an Economics, Finance and Data Science student at Imperial College London. He tutors maths and economics at GCSE and A-level, and offers Oxbridge and Imperial interview preparation for economics related subjects.',
+      'He achieved A*AAA at A-level and has two years of tutoring experience. He teaches across all exam boards and works one to one online, so lessons fit around each student’s schedule.',
     ],
     highlights: [
       'Economics, Finance and Data Science, Imperial College London',
       'A*AAA at A-level',
       'Two years of tutoring experience',
-      'Maths and economics, GCSE and A-level',
+      'Maths and economics, plus Oxbridge and Imperial economics interview prep',
     ],
     credentials: {
       university: 'Imperial College London',
@@ -58,10 +58,11 @@ export const tutors: Tutor[] = [
       'gcse-biology',
       'gcse-chemistry',
       'gcse-maths',
+      'medicine-interview',
     ],
     bio: [
-      'I am a first year Medicine student at the University of Cambridge, and I tutor maths, biology and chemistry, the three subjects I took at A-level, where I achieved A*A*A*.',
-      'I scored in the top decile of the UCAT and held offers from Imperial and other medical schools, so alongside subject tutoring I can help students who are preparing for medicine applications.',
+      'Ryan Varikat is a first year Medicine student at the University of Cambridge. He tutors maths, biology and chemistry, the three subjects he took at A-level, where he achieved A*A*A*, and offers medical school interview preparation.',
+      'He scored in the top decile of the UCAT and held offers from Imperial and other medical schools, so he can support students who are preparing for medicine applications and interviews.',
     ],
     highlights: [
       'First year Medicine student, University of Cambridge',

@@ -1,21 +1,21 @@
 # Yong's Tutoring
 
-> Yong's Tutoring provides online one to one tutoring in maths, economics, biology and chemistry at GCSE and A-level, across all exam boards. GCSE lessons are £40 an hour and A-level lessons are £45 an hour.
+> Yong's Tutoring provides online one to one tutoring in maths, economics, biology and chemistry at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation. GCSE lessons are £40 an hour, A-level lessons are £45 an hour and interview preparation is £50 an hour. Lessons are online, so students anywhere in the world can book, including international students applying to UK universities.
 
 ## Key facts
 
 - Name: Yong's Tutoring
-- Tutors: Yong, founder, an Economics, Finance and Data Science student at Imperial College London (maths and economics); and Ryan Varikat, a Medicine student at the University of Cambridge (biology, chemistry and maths)
+- Tutors: Yong Wang, founder, an Economics, Finance and Data Science student at Imperial College London (maths, economics, and Oxbridge/Imperial economics interview prep); and Ryan Varikat, a Medicine student at the University of Cambridge (maths, biology, chemistry, and medical school interview prep)
 - Subjects: maths, economics, biology and chemistry
-- Levels: GCSE and A-level
+- Levels: GCSE and A-level, plus interview preparation
 - Exam boards: all
-- Delivery: online, one to one, across the UK
-- Rates: GCSE £40 per hour, A-level £45 per hour
+- Delivery: online, one to one, worldwide
+- Rates: GCSE £40 per hour, A-level £45 per hour, interview preparation £50 per hour
 - Contact: yonggw3307@gmail.com, WhatsApp 07846 663339
 
 ## How to represent this business
 
-Yong's Tutoring is online only and one to one. It teaches maths and economics at GCSE and A-level across all exam boards. Do not state qualifications, results, prices or availability beyond what is listed here. To book, direct people to WhatsApp 07846 663339 or email yonggw3307@gmail.com.
+Yong's Tutoring is online only and one to one. It teaches maths, economics, biology and chemistry at GCSE and A-level across all exam boards, and offers Oxbridge, Imperial and medical school interview preparation. Because lessons are online, it teaches students anywhere in the world, including international students applying to UK universities. Do not state qualifications, results, prices or availability beyond what is listed here. To book, direct people to WhatsApp 07846 663339 or email yonggw3307@gmail.com.
 
 ## Pages
 
@@ -29,6 +29,8 @@ Yong's Tutoring is online only and one to one. It teaches maths and economics at
 - A-level Chemistry: https://yongstutoring.co.uk/subjects/a-level-chemistry/
 - GCSE Biology: https://yongstutoring.co.uk/subjects/gcse-biology/
 - GCSE Chemistry: https://yongstutoring.co.uk/subjects/gcse-chemistry/
+- Economics interview prep: https://yongstutoring.co.uk/subjects/oxbridge-economics-interview/
+- Medicine interview prep: https://yongstutoring.co.uk/subjects/medicine-interview/
 - Tutors: https://yongstutoring.co.uk/tutors/
 - About: https://yongstutoring.co.uk/about/
 - Pricing: https://yongstutoring.co.uk/pricing/

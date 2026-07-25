@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Placeholder from '../components/Placeholder.astro';
 import TutorPhoto from '../components/TutorPhoto.astro';
 import FaqBlock from '../components/FaqBlock.astro';
 import { business } from '../data/business';
@@ -58,7 +57,7 @@ const tiers = [
           <a class="btn btn--ghost" href={withBase('/pricing/')}>View subjects &amp; pricing</a>
         </div>
       </div>
-      <Placeholder ratio="5 / 6" label="Photo of tutor / online session" class="hero-photo" />
+      <TutorPhoto photo={leadTutor.photo} name={leadTutor.name} ratio="5 / 6" class="hero-photo" />
     </div>
     <div class="wrap hero-stats">
       <div><span class="hero-stats__n">{currencySymbol}{business.rates.gcse}/hr</span><span class="hero-stats__l">Lessons from</span></div>

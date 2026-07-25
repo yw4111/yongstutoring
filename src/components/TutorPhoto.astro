@@ -1,7 +1,6 @@
 ---
-// Renders a tutor's real photo if they have one, otherwise the placeholder.
-// Drop a photo in and set the tutor's `photo` path in src/data/tutors.ts.
-import Placeholder from './Placeholder.astro';
+// Renders a tutor's real photo if they have one, otherwise a clean initials
+// monogram. Drop a photo in and set the tutor's `photo` path in src/data/tutors.ts.
 import { withBase } from '../lib/paths';
 
 interface Props {
@@ -11,6 +10,13 @@ interface Props {
   class?: string;
 }
 const { photo, name, ratio = '1 / 1', class: cls = '' } = Astro.props;
+
+const initials = name
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((w) => w[0]?.toUpperCase() ?? '')
+  .join('');
 ---
 
 {
@@ -24,7 +30,14 @@ const { photo, name, ratio = '1 / 1', class: cls = '' } = Astro.props;
       decoding="async"
     />
   ) : (
-    <Placeholder ratio={ratio} label={`Photo of ${name}`} class={cls} />
+    <div
+      class={`tphoto tphoto--monogram ${cls}`}
+      style={`aspect-ratio:${ratio}`}
+      role="img"
+      aria-label={`Photo of ${name}`}
+    >
+      <span aria-hidden="true">{initials}</span>
+    </div>
   )
 }
 
@@ -33,5 +46,24 @@ const { photo, name, ratio = '1 / 1', class: cls = '' } = Astro.props;
     object-fit: cover;
     border-radius: var(--radius);
     display: block;
+  }
+
+  .tphoto--monogram {
+    display: grid;
+    place-content: center;
+    container-type: size;
+    background:
+      radial-gradient(circle at 30% 25%, oklch(0.98 0.006 80 / 0.85), transparent 60%),
+      linear-gradient(135deg, oklch(0.8 0.05 200) 0%, oklch(0.55 0.09 200) 100%);
+    color: oklch(0.99 0.006 80);
+    overflow: hidden;
+  }
+
+  .tphoto--monogram span {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 42cqmin;
+    letter-spacing: 0.02em;
+    line-height: 1;
   }
 </style>

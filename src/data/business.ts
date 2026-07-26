@@ -30,7 +30,7 @@ export const business = {
   formEndpoint: 'https://formspree.io/f/xjgnpzbj',
   // Analytics: paste the Cloudflare Web Analytics beacon token here to switch on
   // the traffic dashboard. Leave empty to disable (no script loads).
-  cloudflareAnalyticsToken: 'd421129ab57f44a0bb5109c53dda2e4d',
+  cloudflareAnalyticsToken: '', // Using Cloudflare's automatic (proxied) Web Analytics instead of the JS beacon.
   // Google Search Console verification token (the content of the
   // google-site-verification meta tag). Leave empty to disable.
   googleSiteVerification: 'lIEp-5fSF1JYP7CZRtloxxpVDiEQmqvAJbbgGV247SM',

@@ -75,6 +75,13 @@ const allSchema = [
         data-cf-beacon={`{"token": "${business.cloudflareAnalyticsToken}"}`}
       />
     )}
+    {business.aiRankLabTrackId && (
+      <script
+        async
+        defer
+        src={`https://www.airanklab.com/tracking.min.js?track_id=${business.aiRankLabTrackId}&domain=a`}
+      />
+    )}
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

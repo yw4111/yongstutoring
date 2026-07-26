@@ -47,6 +47,7 @@ const reviewed = new Date(BUILD_DATE).toLocaleDateString('en-GB', {
         <li><a href={withBase('/pricing/')}>Pricing</a></li>
         <li><a href={withBase('/resources/')}>Resources</a></li>
         <li><a href={withBase('/contact/')}>Contact</a></li>
+        <li><a href={withBase('/privacy/')}>Privacy &amp; Terms</a></li>
       </ul>
     </div>
   </div>
@@ -56,7 +57,7 @@ const reviewed = new Date(BUILD_DATE).toLocaleDateString('en-GB', {
       &copy; {new Date().getFullYear()} {business.legalName}. Online tutoring in
       maths, science and economics, worldwide.
     </p>
-    <p class="site-footer__reviewed">Information last reviewed {reviewed}.</p>
+    <p class="site-footer__reviewed">Information last reviewed <time datetime={BUILD_DATE}>{reviewed}</time>.</p>
   </div>
 </footer>
 

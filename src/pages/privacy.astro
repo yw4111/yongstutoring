@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { business } from '../data/business';
+import { withBase } from '../lib/paths';
+import { BUILD_DATE } from '../lib/schema';
+
+const updated = new Date(BUILD_DATE).toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+const { currencySymbol } = business.rates;
+---
+
+<BaseLayout
+  title="Privacy & Terms | Yong's Tutoring"
+  description="How Yong's Tutoring collects and uses your data, the cookies and analytics we use, and the terms that apply to our online tutoring services."
+  path="/privacy/"
+>
+  <section class="section section--petrol">
+    <div class="wrap">
+      <span class="eyebrow">Legal</span>
+      <h1>Privacy &amp; Terms</h1>
+      <p class="lede" style="color: var(--stone);">
+        How we handle your information, and the terms that apply when you use
+        Yong's Tutoring. Last updated <time datetime={BUILD_DATE}>{updated}</time>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap legal-body">
+      <h2>Privacy Policy</h2>
+
+      <h3>Who we are</h3>
+      <p>
+        Yong's Tutoring provides online, one-to-one tutoring. If you have any
+        question about your data, contact us at
+        {' '}<a href={`mailto:${business.email}`}>{business.email}</a>.
+      </p>
+
+      <h3>What we collect</h3>
+      <ul>
+        <li>
+          <strong>Enquiry details.</strong> When you use our contact form or email
+          us, we receive the name, email address and any message or details you
+          choose to send, so we can reply and arrange lessons.
+        </li>
+        <li>
+          <strong>Analytics.</strong> We use Cloudflare Web Analytics, which is
+          privacy-first and does not use cookies or track you across sites, and AI
+          Rank Lab, which helps us understand how the site is found. These tell us
+          things like page views and general location, not who you are.
+        </li>
+        <li>
+          <strong>Technical logs.</strong> Our host and content network (GitHub
+          Pages and Cloudflare) process standard technical data such as IP address
+          and browser type to deliver the site securely.
+        </li>
+      </ul>
+
+      <h3>How we use it</h3>
+      <p>
+        We use your information only to respond to your enquiry, arrange and provide
+        tutoring, and to understand and improve the website. We do not sell your
+        data, and we do not use it for advertising.
+      </p>
+
+      <h3>Who we share it with</h3>
+      <p>
+        We use a small number of trusted providers to run the site and receive
+        enquiries: Formspree (delivers contact-form messages to us), Cloudflare and
+        GitHub Pages (hosting, security and analytics), and AI Rank Lab (search
+        analytics). Each processes data only to provide their service to us.
+      </p>
+
+      <h3>Cookies</h3>
+      <p>
+        Cloudflare Web Analytics is cookieless. Some providers, including AI Rank
+        Lab, may use cookies or similar technologies to measure usage. You can
+        block or delete cookies in your browser settings; the site will still work.
+      </p>
+
+      <h3>Keeping your data</h3>
+      <p>
+        We keep enquiry emails for as long as needed to respond and, where you
+        become a student, to provide tutoring. You can ask us to delete them at any
+        time.
+      </p>
+
+      <h3>Your rights</h3>
+      <p>
+        You can ask to see, correct or delete the personal information we hold about
+        you. Email {' '}<a href={`mailto:${business.email}`}>{business.email}</a> and
+        we will action your request.
+      </p>
+
+      <h3>Students under 18</h3>
+      <p>
+        Many of our students are under 18. Where that is the case, we ask that a
+        parent or guardian makes or approves the enquiry and any lesson
+        arrangements.
+      </p>
+
+      <h2 class="legal-terms">Terms of Service</h2>
+
+      <h3>Our services</h3>
+      <p>
+        We provide online, one-to-one tutoring for GCSE and A-level students, and
+        interview preparation, in the subjects listed on this site. Lessons are
+        delivered over video and arranged individually with each student.
+      </p>
+
+      <h3>Pricing and payment</h3>
+      <p>
+        Our standard rates are {currencySymbol}{business.rates.gcse} per hour for
+        GCSE, {currencySymbol}{business.rates.alevel} per hour for A-level and
+        {' '}{currencySymbol}{business.rates.interview} per hour for interview
+        preparation. Rates may change over time; the price for your lessons is
+        agreed with you before they begin. Payment and scheduling are arranged
+        directly with you.
+      </p>
+
+      <h3>Cancellations</h3>
+      <p>
+        If you need to cancel or reschedule a lesson, let us know as early as you
+        can and we will do our best to accommodate you. Any specific arrangements
+        are agreed between us when lessons are booked.
+      </p>
+
+      <h3>What we can and cannot promise</h3>
+      <p>
+        We work hard to help every student improve, but we cannot guarantee a
+        specific grade or exam outcome, as results depend on many factors including
+        each student's own effort.
+      </p>
+
+      <h3>Content</h3>
+      <p>
+        The content of this website belongs to Yong's Tutoring and is provided for
+        information only.
+      </p>
+
+      <h3>Contact</h3>
+      <p>
+        Questions about these terms or your privacy? Email
+        {' '}<a href={`mailto:${business.email}`}>{business.email}</a> or message
+        {' '}<a href={business.whatsappHref}>{business.phoneDisplay} on WhatsApp</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-body {
+    max-width: 46rem;
+  }
+
+  .legal-body h2 {
+    margin-bottom: 1rem;
+  }
+
+  .legal-body h2.legal-terms {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .legal-body h3 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.4rem;
+    color: var(--petrol);
+    font-size: 1.12rem;
+  }
+
+  .legal-body p,
+  .legal-body li {
+    color: var(--muted);
+  }
+
+  .legal-body ul {
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .legal-body strong {
+    color: var(--ink);
+  }
+</style>

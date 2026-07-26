@@ -221,3 +221,20 @@ export function faqSchema(faqs: Faq[]) {
     })),
   };
 }
+
+/** A QAPage view of the same Q&A content, for answer-engine comprehension. */
+export function qaPageSchema(faqs: Faq[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'QAPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      answerCount: 1,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.answer,
+      },
+    })),
+  };
+}

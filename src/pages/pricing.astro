@@ -4,11 +4,11 @@ import FaqBlock from '../components/FaqBlock.astro';
 import { business } from '../data/business';
 import { subjects } from '../data/subjects';
 import { pricingFaqs } from '../data/faqs';
-import { faqSchema } from '../lib/schema';
+import { faqSchema, qaPageSchema } from '../lib/schema';
 import { withBase } from '../lib/paths';
 
 const { currencySymbol } = business.rates;
-const schema = [faqSchema(pricingFaqs)];
+const schema = [faqSchema(pricingFaqs), qaPageSchema(pricingFaqs)];
 ---
 
 <BaseLayout

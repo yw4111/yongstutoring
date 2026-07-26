@@ -88,11 +88,7 @@ const allSchema = [
       </div>
     </div>
     {business.aiRankLabTrackId && (
-      <script
-        async
-        defer
-        src={`https://www.airanklab.com/tracking.min.js?track_id=${business.aiRankLabTrackId}&domain=yongstutoring.com`}
-      />
+      <Fragment set:html={`<script src="https://www.airanklab.com/tracking.min.js?track_id=${business.aiRankLabTrackId}&domain=yongstutoring.com" async defer></script>`} />
     )}
   </body>
 </html>

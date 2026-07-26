@@ -35,7 +35,7 @@ export const business = {
   // google-site-verification meta tag). Leave empty to disable.
   googleSiteVerification: 'lIEp-5fSF1JYP7CZRtloxxpVDiEQmqvAJbbgGV247SM',
   // AI Rank Lab tracking id (monitors AI answer-engine visibility). Leave empty to disable.
-  aiRankLabTrackId: '7b57cfe3307f6b904304cd066d5ac62c',
+  aiRankLabTrackId: '742fb4fae5ffc143a6549a37ef875f77',
   // Not published yet. Placeholders for the owner to supply: testimonials and
   // social/professional profiles (sameAs). Nothing invented.
   sameAs: [] as string[],

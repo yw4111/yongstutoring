@@ -140,6 +140,7 @@ export const tutors: Tutor[] = [
       alevels: 'A*A*A* in Maths, Biology and Chemistry',
       experienceYears: 3,
     },
+    photo: '/tutors/shria.jpg',
   },
 ];
 

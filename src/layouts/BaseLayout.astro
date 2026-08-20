@@ -24,7 +24,7 @@ interface Props {
 
 const { title, description, path = '/', schema = [] } = Astro.props;
 const canonical = new URL(path, business.url).href;
-const ogImage = new URL('/og.png', business.url).href;
+const ogImage = new URL('/og.png?v=1', business.url).href;
 const fullTitle = title.includes(business.name) ? title : `${title} | ${business.name}`;
 
 // Every page carries the business entity, each tutor, the site node and a dated

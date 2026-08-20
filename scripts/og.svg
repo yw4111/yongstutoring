@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#2E6E7B"/>
+  <rect x="0" y="0" width="1200" height="630" fill="none"/>
+
+  <!-- badge -->
+  <rect x="90" y="86" width="118" height="118" rx="28" fill="#FAF8F3"/>
+  <text x="149" y="177" font-family="Georgia, 'Times New Roman', serif" font-size="82" font-weight="bold" fill="#2E6E7B" text-anchor="middle">Y</text>
+
+  <!-- wordmark -->
+  <text x="232" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="bold" fill="#FAF8F3">Yong<tspan fill="#D8A544">&#8217;</tspan>s Tutoring</text>
+
+  <!-- headline -->
+  <text x="92" y="360" font-family="Georgia, 'Times New Roman', serif" font-size="62" font-weight="bold" fill="#FAF8F3">Online GCSE &amp; A-level tutoring</text>
+
+  <!-- subjects -->
+  <text x="94" y="424" font-family="Arial, 'Segoe UI', sans-serif" font-size="30" fill="#FAF8F3" opacity="0.9">Maths &#183; Further Maths &#183; Economics &#183; Biology &#183; Chemistry &#183; Physics</text>
+
+  <!-- amber rule -->
+  <rect x="94" y="470" width="150" height="6" rx="3" fill="#D8A544"/>
+
+  <!-- footer -->
+  <text x="94" y="556" font-family="Arial, 'Segoe UI', sans-serif" font-size="30" font-weight="bold" fill="#FAF8F3">Tutors from Imperial &amp; Cambridge</text>
+  <text x="1106" y="556" font-family="Arial, 'Segoe UI', sans-serif" font-size="30" font-weight="bold" fill="#D8A544" text-anchor="end">yongstutoring.com</text>
+</svg>

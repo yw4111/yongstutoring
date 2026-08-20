@@ -17,7 +17,13 @@ const { currencySymbol } = business.rates;
 
 <aside class="sidebar">
   <div class="sidebar__top">
-    <a href={withBase('/')} class="sidebar__brand">Yong's Tutoring</a>
+    <a href={withBase('/')} class="sidebar__brand">
+      <svg class="brand-badge" viewBox="0 0 96 96" aria-hidden="true">
+        <rect width="96" height="96" rx="22" />
+        <text x="48" y="70" text-anchor="middle">Y</text>
+      </svg>
+      <span class="sidebar__name">Yong<span class="ap">&#8217;</span>s Tutoring</span>
+    </a>
     <p class="sidebar__tagline">Online tutoring in maths, science and economics, GCSE and A-level.</p>
   </div>
 
@@ -56,14 +62,41 @@ const { currencySymbol } = business.rates;
   }
 
   .sidebar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+  }
+
+  .brand-badge {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .brand-badge rect {
+    fill: var(--petrol);
+  }
+
+  .brand-badge text {
     font-family: var(--font-display);
-    font-size: 1.7rem;
+    font-weight: 600;
+    font-size: 64px;
+    fill: var(--stone);
+  }
+
+  .sidebar__name {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
     font-weight: 600;
     letter-spacing: -0.01em;
     color: var(--ink);
-    text-decoration: none;
-    line-height: 1.1;
-    display: block;
+    line-height: 1.05;
+  }
+
+  .sidebar__name .ap {
+    color: var(--amber);
   }
 
   .sidebar__tagline {

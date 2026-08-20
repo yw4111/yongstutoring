@@ -109,6 +109,38 @@ export const tutors: Tutor[] = [
     },
     photo: '/tutors/yiming.jpg',
   },
+  {
+    slug: 'shria',
+    name: 'Shria Gorla',
+    role: 'Medicine & science tutor',
+    subjects: [
+      'a-level-maths',
+      'a-level-biology',
+      'a-level-chemistry',
+      'gcse-maths',
+      'gcse-biology',
+      'gcse-chemistry',
+      'medicine-interview',
+    ],
+    bio: [
+      'Shria Gorla is a Medicine student at King’s College, University of Cambridge. She tutors maths, biology and chemistry at GCSE and A-level, and specialises in medical school admissions, offering UCAT coaching, personal statement feedback and mock interviews in MMI, panel and Oxbridge formats.',
+      'She achieved A*A*A* in Maths, Biology and Chemistry, scored in the top 5% of the UCAT with Band 1 in Situational Judgement, and held Medicine offers from King’s College London and Queen Mary. With three years of tutoring experience, including at the tuition company NFT, she tailors every lesson to the student, using clear explanations, worked examples and timed practice to build understanding, exam technique and confidence.',
+    ],
+    highlights: [
+      'Medicine student, King’s College, University of Cambridge',
+      'A*A*A* in Maths, Biology and Chemistry',
+      'Top 5% in the UCAT, with Band 1 in Situational Judgement',
+      'Medicine offers from King’s College London and Queen Mary',
+      'Three years of tutoring experience, including at NFT',
+      'UCAT, personal statement and medical interview coaching (MMI, panel and Oxbridge)',
+    ],
+    credentials: {
+      university: 'University of Cambridge',
+      course: 'Medicine',
+      alevels: 'A*A*A* in Maths, Biology and Chemistry',
+      experienceYears: 3,
+    },
+  },
 ];
 
 export const leadTutor = tutors.find((t) => t.lead) ?? tutors[0];

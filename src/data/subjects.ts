@@ -6,15 +6,14 @@ export interface Subject {
   name: string;
   /** Short label for cards and nav */
   shortName: string;
-  level: 'GCSE' | 'A-level' | 'Admissions';
+  level: 'GCSE' | 'A-level';
   subject:
     | 'Maths'
     | 'Further Maths'
     | 'Economics'
     | 'Biology'
     | 'Chemistry'
-    | 'Physics'
-    | 'Interview prep';
+    | 'Physics';
   /** Hourly rate in pounds */
   rate: number;
   /** One line for the overview grid */
@@ -424,76 +423,6 @@ export const subjects: Subject[] = [
         question: 'Do you cover combined and triple science?',
         answer:
           'Yes. Lessons cover both combined science and triple (separate) physics across all exam boards.',
-      },
-    ],
-  },
-  {
-    slug: 'oxbridge-economics-interview',
-    name: 'Oxbridge and Imperial economics interview preparation',
-    shortName: 'Economics interview prep',
-    level: 'Admissions',
-    subject: 'Interview prep',
-    rate: 50,
-    summary: 'Interview preparation for economics related courses at Oxbridge and Imperial.',
-    directAnswer:
-      "Yong's Tutoring offers online interview preparation for economics related courses at Oxbridge and Imperial, for £50 an hour. Sessions build the way of thinking interviewers look for, with mock interviews, practice problems and feedback from a tutor who has been through the process.",
-    covered: [
-      'How economics and admissions interviews work',
-      'Thinking out loud and working through problems',
-      'Practice questions and past interview style problems',
-      'Mock interviews with feedback',
-      'Personal statement and application discussion',
-    ],
-    detail: [
-      'Interviews for economics related courses reward clear reasoning under pressure more than memorised facts. Sessions build the habit of thinking out loud, structuring an answer and responding to prompts the way interviewers want.',
-      'Preparation is one to one and online, with mock interviews and feedback from a tutor who applied successfully to Imperial and studies a quantitative economics course there. Suitable for students applying to Oxbridge, Imperial and similar.',
-    ],
-    tutorSlugs: ['yong'],
-    faqs: [
-      {
-        question: 'How much is economics interview preparation?',
-        answer:
-          'Economics interview preparation is £50 an hour, one to one and online.',
-      },
-      {
-        question: 'Who is this for?',
-        answer:
-          'Students applying to economics related courses at Oxbridge, Imperial and similar universities, including international students applying to UK universities.',
-      },
-    ],
-  },
-  {
-    slug: 'medicine-interview',
-    name: 'Medical school interview preparation',
-    shortName: 'Medicine interview prep',
-    level: 'Admissions',
-    subject: 'Interview prep',
-    rate: 50,
-    summary: 'Interview preparation for medical school, from a Cambridge medicine student.',
-    directAnswer:
-      "Yong's Tutoring offers online medical school interview preparation for £50 an hour. Sessions cover the common interview formats, ethics and motivation questions, and mock interviews with feedback, from a tutor who recently held offers from Imperial and other medical schools.",
-    covered: [
-      'How medical school interviews work, including MMI',
-      'Ethics, empathy and motivation questions',
-      'Structuring answers under pressure',
-      'Mock interviews with feedback',
-      'Application and personal statement discussion',
-    ],
-    detail: [
-      'Medical school interviews test communication, ethical reasoning and motivation as much as knowledge. Sessions work through the common formats, including multiple mini interviews, and practise structuring clear, thoughtful answers.',
-      'Preparation is one to one and online, with mock interviews and feedback from a Cambridge medicine student who scored in the top decile of the UCAT and held offers from Imperial and other medical schools.',
-    ],
-    tutorSlugs: ['ryan'],
-    faqs: [
-      {
-        question: 'How much is medical school interview preparation?',
-        answer:
-          'Medical school interview preparation is £50 an hour, one to one and online.',
-      },
-      {
-        question: 'Do you cover multiple mini interviews (MMI)?',
-        answer:
-          'Yes. Sessions cover the common interview formats, including multiple mini interviews, with mock interviews and feedback.',
       },
     ],
   },

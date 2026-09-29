@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FaqBlock from '../../components/FaqBlock.astro';
+import { business } from '../../data/business';
+import type { Faq } from '../../data/faqs';
+import { faqSchema, qaPageSchema } from '../../lib/schema';
+
+const { currencySymbol, advice, mockInterview, currency } = business.rates;
+
+const faqs: Faq[] = [
+  {
+    question: 'How long does a personal statement or advice session need to be?',
+    answer: `Sessions start at 30 minutes and can then be extended in 15 minute steps, charged pro rata at ${currencySymbol}${advice} an hour.`,
+  },
+  {
+    question: 'What happens in a mock interview session?',
+    answer: `A one hour session is ${currencySymbol}${mockInterview}. It is usually around 30 minutes of mock interview, 15 minutes of general advice and 15 minutes of feedback, but the split is flexible and can be changed to suit what you need.`,
+  },
+  {
+    question: 'Which interview questions do you use?',
+    answer:
+      'Practice uses questions I know have come up in real EFDS interviews, alongside similar questions that are available publicly, so you practise on the kind of problems that are actually tested.',
+  },
+  {
+    question: 'Can I book sessions regularly?',
+    answer:
+      'Yes. Sessions can be one off or recurring, and most students book regular sessions in the run up to their interview so each one builds on the last.',
+  },
+  {
+    question: 'Can you help with Oxbridge interviews?',
+    answer:
+      'Yes. EFDS is the main focus, but I also offer interview preparation for Oxbridge courses such as Oxford Economics and Management, Cambridge Economics and Oxford PPE. I have been through four interviews for Oxford’s Economics and Management course, so I know that process first hand.',
+  },
+  {
+    question: 'How do I book?',
+    answer: `There is no online booking. Message ${business.phoneDisplay} on WhatsApp with what you would like help with and your deadline or interview date, and we will find a time that works.`,
+  },
+];
+
+const pageUrl = `${business.url}/university-applications/efds/`;
+const offer = (name: string, price: number, unitText: string) => ({
+  '@type': 'Offer',
+  name,
+  price,
+  priceCurrency: currency,
+  priceSpecification: { '@type': 'UnitPriceSpecification', price, priceCurrency: currency, unitText },
+});
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${pageUrl}#service`,
+    name: 'Imperial EFDS university application support',
+    serviceType: 'University application and interview preparation',
+    description:
+      "Personal statement feedback, general application advice and mock interviews for Imperial College London's Economics, Finance and Data Science (EFDS) course, from a current EFDS student.",
+    url: pageUrl,
+    provider: { '@id': `${business.url}/#business` },
+    areaServed: business.areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
+    offers: [
+      offer('Personal statement feedback and general advice', advice, 'hour'),
+      offer('One hour mock interview session', mockInterview, 'session'),
+    ],
+  },
+  faqSchema(faqs),
+  qaPageSchema(faqs),
+];
+---
+
+<BaseLayout
+  title="Imperial EFDS Application Support | Yong's Tutoring"
+  description={`Imperial Economics, Finance and Data Science (EFDS) application support: personal statement feedback and advice from ${currencySymbol}${advice}/hr and one hour mock interviews for ${currencySymbol}${mockInterview}, from a current EFDS student.`}
+  path="/university-applications/efds/"
+  schema={schema}
+>
+  <section class="section section--petrol">
+    <div class="wrap">
+      <span class="eyebrow">University applications</span>
+      <h1>Imperial EFDS application support</h1>
+      <p class="lede" style="color: var(--stone);">
+        Personal statement feedback, application advice and mock interviews for
+        Imperial's Economics, Finance and Data Science (EFDS) course, from a
+        current EFDS student who went through the process for the 2025 intake.
+      </p>
+      <div class="uni-actions">
+        <a class="btn btn--primary" href={business.whatsappHref}>Book on WhatsApp</a>
+        <a class="btn btn--ghost" href={`mailto:${business.email}`}>Email me</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--stone">
+    <div class="wrap uni-body">
+      <div class="uni-main">
+        <h2>Who runs the sessions</h2>
+        <p>
+          I'm Yong, a student on Imperial's Economics, Finance and Data Science
+          course. I applied, interviewed and got in for the 2025 intake, so I know
+          the process from the applicant's side and what the course is actually
+          like once you're here.
+        </p>
+
+        <h2>What I offer</h2>
+      </div>
+
+      <aside class="uni-side">
+        <div class="schedule">
+          <div class="schedule__head">
+            <span>Imperial EFDS</span>
+            <span>At a glance</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Course</span>
+            <span class="schedule__value">Economics, Finance and Data Science</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Tutor</span>
+            <span class="schedule__value">Yong Wang, current EFDS student</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Statement &amp; advice</span>
+            <span class="schedule__value">{currencySymbol}{advice}/hour, from 30 min</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Mock interview</span>
+            <span class="schedule__value">{currencySymbol}{mockInterview} per 1 hour session</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Format</span>
+            <span class="schedule__value">One to one, online</span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__label">Booking</span>
+            <span class="schedule__value">WhatsApp {business.phoneDisplay}</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap uni-cards">
+      <div class="uni-card">
+        <div class="uni-card__name">Personal statement feedback &amp; general advice</div>
+        <div class="uni-card__amt"><span class="uni-card__num">{currencySymbol}{advice}</span> / hour</div>
+        <ul class="ticklist">
+          <li>Feedback on your drafts, from first ideas to the final version</li>
+          <li>Structure, content and how well it fits what EFDS looks for</li>
+          <li>What to read, explore and write about</li>
+          <li>General advice on the application and what to expect</li>
+        </ul>
+        <p class="uni-card__note">
+          Book from 30 minutes, then in 15 minute steps at the hourly rate.
+        </p>
+      </div>
+
+      <div class="uni-card uni-card--featured">
+        <div class="uni-card__name">Mock interview session</div>
+        <div class="uni-card__amt"><span class="uni-card__num">{currencySymbol}{mockInterview}</span> / 1 hour session</div>
+        <ul class="ticklist">
+          <li>Around 30 minutes of mock interview in the EFDS style</li>
+          <li>Around 15 minutes of general advice</li>
+          <li>Around 15 minutes of detailed feedback</li>
+          <li>Questions I know have come up in real EFDS interviews, plus similar ones available publicly</li>
+        </ul>
+        <p class="uni-card__note">
+          The split is flexible, so tell me if you would like more practice or more
+          feedback. Sessions can be recurring, and most students book regular
+          sessions in the run up to their interview.
+        </p>
+      </div>
+    </div>
+
+    <div class="wrap uni-record">
+      <h2>How many sessions should I book?</h2>
+      <p>
+        It depends on where you are starting from, but as a guide, a strong
+        applicant preparing thoroughly would typically have around ten or more
+        sessions in total, split between the personal statement and interview
+        preparation.
+      </p>
+      <p>
+        As an example, in the most recent admissions cycle I supported an
+        applicant through the full EFDS application: around eight sessions on the
+        personal statement, from initial planning to the final draft, followed by
+        around six sessions of interview preparation. The applicant received an
+        offer and is now studying on the course.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="wrap uni-faq">
+      <span class="eyebrow">Answers</span>
+      <FaqBlock faqs={faqs} heading="Questions about application support" level="h2" />
+    </div>
+  </section>
+
+  <section class="section section--petrol">
+    <div class="wrap">
+      <h2>Book a session</h2>
+      <p class="lede" style="color: var(--stone);">
+        There is no online booking. Message {business.phoneDisplay} on WhatsApp with
+        what you would like help with and your deadline or interview date, and we
+        will find a time that works. Sessions run one to one over video.
+      </p>
+      <div class="uni-actions">
+        <a class="btn btn--primary" href={business.whatsappHref}>Message on WhatsApp</a>
+        <a class="btn btn--ghost" href={`mailto:${business.email}`}>Email {business.email}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .uni-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .uni-body {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 46rem) {
+    .uni-body { grid-template-columns: 1.5fr 1fr; }
+  }
+
+  .uni-main h2 { margin-top: 2rem; }
+  .uni-main h2:first-child { margin-top: 0; }
+  .uni-main p { max-width: 46rem; color: var(--muted); }
+
+  .uni-cards {
+    display: grid;
+    gap: var(--gap);
+    margin-top: 1rem;
+  }
+
+  /* Side by side only when the sidebar leaves room for ~400px cards. */
+  @media (min-width: 72rem) {
+    .uni-cards { grid-template-columns: 1fr 1fr; }
+  }
+
+  .uni-card {
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 2rem;
+  }
+
+  .uni-card--featured { border-color: var(--petrol); box-shadow: 0 8px 30px oklch(0.45 0.09 200 / 0.12); }
+
+  .uni-card__name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; margin-bottom: 0.35rem; }
+  .uni-card__amt { color: var(--muted); margin-bottom: 1.25rem; }
+  .uni-card__num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 600; color: var(--ink); }
+  .uni-card__note { color: var(--muted); margin: 1.25rem 0 0; }
+
+  .uni-record { margin-top: 3rem; }
+  .uni-record p { max-width: 46rem; color: var(--muted); }
+
+  .uni-faq { max-width: 52rem; }
+</style>

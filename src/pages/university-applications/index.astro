@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { business } from '../../data/business';
+import { withBase } from '../../lib/paths';
+
+const { currencySymbol, advice, mockInterview } = business.rates;
+
+// One entry per course page under /university-applications/.
+const courses = [
+  {
+    href: '/university-applications/efds/',
+    ref: 'Imperial College London',
+    title: 'Economics, Finance and Data Science (EFDS)',
+    summary:
+      'Personal statement feedback, application advice and mock interviews from a current EFDS student. Oxbridge interview preparation is also available.',
+    price: `From ${currencySymbol}${advice}/hr`,
+  },
+];
+---
+
+<BaseLayout
+  title="University Applications | Yong's Tutoring"
+  description={`University application support: personal statement feedback and advice from ${currencySymbol}${advice}/hr and one hour mock interviews for ${currencySymbol}${mockInterview}, from students who have been through the process.`}
+  path="/university-applications/"
+>
+  <section class="section section--petrol">
+    <div class="wrap">
+      <span class="eyebrow">University applications</span>
+      <h1>University application support</h1>
+      <p class="lede" style="color: var(--stone);">
+        Personal statement feedback, application advice and mock interviews,
+        from students who have recently been through the process themselves.
+        Choose a course below.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--stone">
+    <div class="wrap">
+      <div class="grid grid--2">
+        {
+          courses.map((c) => (
+            <a class="course-card" href={withBase(c.href)}>
+              <div class="course-card__head">
+                <span class="course-card__ref">{c.ref}</span>
+                <span class="stamp">{c.price}</span>
+              </div>
+              <h2 class="course-card__title">{c.title}</h2>
+              <p class="course-card__summary">{c.summary}</p>
+              <span class="course-card__cta" aria-hidden="true">View course support &rarr;</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Mirrors ServiceCard on /subjects/. */
+  .course-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1.5px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: var(--ink);
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .course-card:hover { border-color: var(--petrol); transform: translateY(-2px); }
+
+  .course-card__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .course-card__ref {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .course-card__title { font-size: 1.2rem; margin-bottom: 0.5rem; }
+  .course-card__summary { color: var(--muted); margin-bottom: 1rem; flex-grow: 1; }
+
+  .course-card__cta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--petrol);
+    font-weight: 700;
+  }
+
+  .course-card:hover .course-card__cta { color: var(--amber); }
+</style>

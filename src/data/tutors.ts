@@ -31,16 +31,16 @@ export const tutors: Tutor[] = [
     name: 'Yong Wang',
     lead: true,
     role: 'Founder & tutor',
-    subjects: ['a-level-maths', 'a-level-economics', 'gcse-maths', 'gcse-economics', 'oxbridge-economics-interview'],
+    subjects: ['a-level-maths', 'a-level-economics', 'gcse-maths', 'gcse-economics'],
     bio: [
-      'Yong Wang is an Economics, Finance and Data Science student at Imperial College London. He tutors maths and economics at GCSE and A-level, and offers Oxbridge and Imperial interview preparation for economics related subjects.',
+      'Yong Wang is an Economics, Finance and Data Science student at Imperial College London. He tutors maths and economics at GCSE and A-level.',
       'He achieved A*AAA at A-level and has two years of tutoring experience. He teaches across all exam boards and works one to one online, so lessons fit around each student’s schedule.',
     ],
     highlights: [
       'Economics, Finance and Data Science, Imperial College London',
       'A*AAA at A-level',
       'Two years of tutoring experience',
-      'Maths and economics, plus Oxbridge and Imperial economics interview prep',
+      'Maths and economics at GCSE and A-level',
     ],
     credentials: {
       university: 'Imperial College London',
@@ -61,11 +61,10 @@ export const tutors: Tutor[] = [
       'gcse-biology',
       'gcse-chemistry',
       'gcse-maths',
-      'medicine-interview',
     ],
     bio: [
-      'Ryan Varikat is a first year Medicine student at the University of Cambridge. He tutors maths, biology and chemistry, the three subjects he took at A-level, where he achieved A*A*A*, and offers medical school interview preparation.',
-      'He scored in the top decile of the UCAT and held offers from Imperial and other medical schools, so he can support students who are preparing for medicine applications and interviews.',
+      'Ryan Varikat is a first year Medicine student at the University of Cambridge. He tutors maths, biology and chemistry, the three subjects he took at A-level, where he achieved A*A*A*.',
+      'He scored in the top decile of the UCAT and held offers from Imperial and other medical schools.',
     ],
     highlights: [
       'First year Medicine student, University of Cambridge',
@@ -112,7 +111,7 @@ export const tutors: Tutor[] = [
   {
     slug: 'shria',
     name: 'Shria Gorla',
-    role: 'Medicine & science tutor',
+    role: 'Science & maths tutor',
     subjects: [
       'a-level-maths',
       'a-level-biology',
@@ -120,10 +119,9 @@ export const tutors: Tutor[] = [
       'gcse-maths',
       'gcse-biology',
       'gcse-chemistry',
-      'medicine-interview',
     ],
     bio: [
-      'Shria Gorla is a Medicine student at King’s College, University of Cambridge. She tutors maths, biology and chemistry at GCSE and A-level, and specialises in medical school admissions, offering UCAT coaching, personal statement feedback and mock interviews in MMI, panel and Oxbridge formats.',
+      'Shria Gorla is a Medicine student at King’s College, University of Cambridge. She tutors maths, biology and chemistry at GCSE and A-level.',
       'She achieved A*A*A* in Maths, Biology and Chemistry, scored in the top 5% of the UCAT with Band 1 in Situational Judgement, and held Medicine offers from King’s College London and Queen Mary. With three years of tutoring experience, including at the tuition company NFT, she tailors every lesson to the student, using clear explanations, worked examples and timed practice to build understanding, exam technique and confidence.',
     ],
     highlights: [
@@ -132,7 +130,6 @@ export const tutors: Tutor[] = [
       'Top 5% in the UCAT, with Band 1 in Situational Judgement',
       'Medicine offers from King’s College London and Queen Mary',
       'Three years of tutoring experience, including at NFT',
-      'UCAT, personal statement and medical interview coaching (MMI, panel and Oxbridge)',
     ],
     credentials: {
       university: 'University of Cambridge',

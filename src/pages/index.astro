@@ -26,18 +26,12 @@ const tiers = [
     featured: true,
     features: ['One to one, online', 'All subjects and exam boards', 'Exam technique and past papers', 'Taught by Imperial and Cambridge tutors'],
   },
-  {
-    name: 'Interview prep',
-    subtitle: 'Oxbridge, Imperial and medical school',
-    price: `${currencySymbol}${business.rates.interview}`,
-    features: ['One to one, online', 'Mock interviews with feedback', 'Economics and medicine', 'From tutors who got in'],
-  },
 ];
 ---
 
 <BaseLayout
   title="Yong's Tutoring | Online GCSE and A-level maths, science and economics"
-  description="Online one to one tutoring in maths, further maths, economics, biology, chemistry and physics for GCSE and A-level, plus Oxbridge and medical interview prep. Taught by tutors from Imperial and Cambridge. GCSE £40/hr, A-level £45/hr."
+  description="Online one to one tutoring in maths, further maths, economics, biology, chemistry and physics for GCSE and A-level. Taught by tutors from Imperial and Cambridge. GCSE £40/hr, A-level £45/hr."
   path="/"
   schema={schema}
 >
@@ -72,8 +66,7 @@ const tiers = [
         <p class="answer-lead">
           Yong's Tutoring is an online, one-to-one tutoring service for GCSE and
           A-level students in maths, further maths, economics, biology, chemistry
-          and physics, plus Oxbridge, Imperial and medical school interview
-          preparation. Lessons are taught by specialist tutors from Imperial and
+          and physics. Lessons are taught by specialist tutors from Imperial and
           Cambridge, from {currencySymbol}{business.rates.gcse} per hour, with a
           free consultation to match you with the right tutor.
         </p>
@@ -93,11 +86,6 @@ const tiers = [
             <th scope="row">A-level</th>
             <td>Maths, Further Maths, Economics, Biology, Chemistry, Physics</td>
             <td class="glance__price">{currencySymbol}{business.rates.alevel}</td>
-          </tr>
-          <tr>
-            <th scope="row">Interview Preparation</th>
-            <td>Oxbridge &amp; Imperial economics, Medical school</td>
-            <td class="glance__price">{currencySymbol}{business.rates.interview}</td>
           </tr>
         </tbody>
       </table>
@@ -434,7 +422,7 @@ const tiers = [
   .tiers {
     display: grid;
     gap: var(--gap);
-    max-width: 60rem;
+    max-width: 42rem;
     margin: 0 auto;
   }
 
@@ -442,9 +430,6 @@ const tiers = [
     .tiers { grid-template-columns: 1fr 1fr; }
   }
 
-  @media (min-width: 52rem) {
-    .tiers { grid-template-columns: repeat(3, 1fr); }
-  }
 
   .tier {
     position: relative;

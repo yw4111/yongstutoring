@@ -5,7 +5,7 @@ export const business = {
   legalName: "Yong's Tutoring",
   tagline: 'Online tutoring in maths, science and economics',
   descriptionShort:
-    "Yong's Tutoring provides online one to one tutoring in maths, further maths, economics, biology, chemistry and physics at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation.",
+    "Yong's Tutoring provides online one to one tutoring in maths, further maths, economics, biology, chemistry and physics at GCSE and A-level, across all exam boards.",
   url: 'https://yongstutoring.com',
   phoneDisplay: '07846 663339',
   phoneHref: '+447846663339',
@@ -18,7 +18,9 @@ export const business = {
   rates: {
     gcse: 40,
     alevel: 45,
-    interview: 50,
+    // University applications (Imperial EFDS) — see /university-applications/efds/
+    advice: 50, // personal statement feedback & general advice, per hour
+    mockInterview: 60, // one hour mock interview session
     currency: 'GBP',
     currencySymbol: '£',
   },

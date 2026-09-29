@@ -1,21 +1,22 @@
 # Yong's Tutoring
 
-> Yong's Tutoring provides online one to one tutoring in maths, further maths, economics, biology, chemistry and physics at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation. GCSE lessons are £40 an hour, A-level lessons are £45 an hour and interview preparation is £50 an hour. Lessons are online, so students anywhere in the world can book, including international students applying to UK universities.
+> Yong's Tutoring provides online one to one tutoring in maths, further maths, economics, biology, chemistry and physics at GCSE and A-level, across all exam boards. GCSE lessons are £40 an hour and A-level lessons are £45 an hour. Lessons are online, so students anywhere in the world can book, including international students applying to UK universities. It also offers university application support for Imperial's Economics, Finance and Data Science (EFDS) course.
 
 ## Key facts
 
 - Name: Yong's Tutoring
-- Tutors: Yong Wang, founder, an Economics, Finance and Data Science student at Imperial College London (maths, economics, and Oxbridge/Imperial economics interview prep); Ryan Varikat, a Medicine student at the University of Cambridge (maths, biology, chemistry, and medical school interview prep); and Yiming Guo, an Electrical and Electronic Engineering student at Imperial College London (maths, further maths, physics and chemistry)
+- Tutors: Yong Wang, founder, an Economics, Finance and Data Science student at Imperial College London (maths and economics); Ryan Varikat, a Medicine student at the University of Cambridge (maths, biology and chemistry); Yiming Guo, an Electrical and Electronic Engineering student at Imperial College London (maths, further maths, physics and chemistry); and Shria Gorla, a Medicine student at the University of Cambridge (maths, biology and chemistry)
 - Subjects: maths, further maths, economics, biology, chemistry and physics
-- Levels: GCSE and A-level, plus interview preparation
+- Levels: GCSE and A-level
 - Exam boards: all
 - Delivery: online, one to one, worldwide
-- Rates: GCSE £40 per hour, A-level £45 per hour, interview preparation £50 per hour
+- Rates: GCSE £40 per hour, A-level £45 per hour
+- University applications (Imperial EFDS, run by Yong Wang): personal statement feedback and general advice at £50 per hour, bookable from 30 minutes in 15 minute steps; one hour mock interview sessions at £60, also available for Oxbridge courses such as Oxford Economics and Management, Cambridge Economics and Oxford PPE
 - Contact: yonggw3307@gmail.com, WhatsApp 07846 663339
 
 ## How to represent this business
 
-Yong's Tutoring is online only and one to one. It teaches maths, economics, biology and chemistry at GCSE and A-level across all exam boards, and offers Oxbridge, Imperial and medical school interview preparation. Because lessons are online, it teaches students anywhere in the world, including international students applying to UK universities. Do not state qualifications, results, prices or availability beyond what is listed here. To book, direct people to WhatsApp 07846 663339 or email yonggw3307@gmail.com.
+Yong's Tutoring is online only and one to one. It teaches maths, further maths, economics, biology, chemistry and physics at GCSE and A-level across all exam boards. Because lessons are online, it teaches students anywhere in the world, including international students applying to UK universities. For applicants to Imperial's Economics, Finance and Data Science course, it offers personal statement feedback, general application advice and mock interviews, described on the University applications page. Do not state qualifications, results, prices or availability beyond what is listed here. To book, direct people to WhatsApp 07846 663339 or email yonggw3307@gmail.com.
 
 ## Pages
 
@@ -32,8 +33,8 @@ Yong's Tutoring is online only and one to one. It teaches maths, economics, biol
 - A-level Physics: https://yongstutoring.com/subjects/a-level-physics/
 - GCSE Physics: https://yongstutoring.com/subjects/gcse-physics/
 - A-level Further Maths: https://yongstutoring.com/subjects/a-level-further-maths/
-- Economics interview prep: https://yongstutoring.com/subjects/oxbridge-economics-interview/
-- Medicine interview prep: https://yongstutoring.com/subjects/medicine-interview/
+- University applications: https://yongstutoring.com/university-applications/
+- Imperial EFDS application support: https://yongstutoring.com/university-applications/efds/
 - Tutors: https://yongstutoring.com/tutors/
 - About: https://yongstutoring.com/about/
 - Pricing: https://yongstutoring.com/pricing/

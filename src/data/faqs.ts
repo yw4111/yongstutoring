@@ -7,12 +7,12 @@ export const subjectsFaqs: Faq[] = [
   {
     question: 'What subjects does Yong’s Tutoring cover?',
     answer:
-      'Maths, economics, biology and chemistry at GCSE and A-level, one to one and online across all exam boards, plus Oxbridge, Imperial and medical school interview preparation.',
+      'Maths, further maths, economics, biology, chemistry and physics at GCSE and A-level, one to one and online across all exam boards.',
   },
   {
     question: 'How much does tutoring cost?',
     answer:
-      'GCSE tutoring is £40 an hour, A-level tutoring is £45 an hour and interview preparation is £50 an hour. Lessons are one to one and online.',
+      'GCSE tutoring is £40 an hour and A-level tutoring is £45 an hour. Lessons are one to one and online.',
   },
   {
     question: 'Are lessons online or in person?',
@@ -30,7 +30,7 @@ export const homeFaqs: Faq[] = [
   {
     question: 'What does Yong’s Tutoring offer?',
     answer:
-      'Online one to one tutoring in maths, economics, biology and chemistry at GCSE and A-level, across all exam boards, plus Oxbridge, Imperial and medical school interview preparation. GCSE is £40 an hour, A-level is £45 and interview prep is £50.',
+      'Online one to one tutoring in maths, further maths, economics, biology, chemistry and physics at GCSE and A-level, across all exam boards. GCSE is £40 an hour and A-level is £45.',
   },
   {
     question: 'Where do you teach? Is it only in the UK?',
@@ -45,7 +45,7 @@ export const homeFaqs: Faq[] = [
   {
     question: 'How much does tutoring cost?',
     answer:
-      'GCSE tutoring is £40 an hour, A-level tutoring is £45 an hour and interview preparation is £50 an hour, one to one and online.',
+      'GCSE tutoring is £40 an hour and A-level tutoring is £45 an hour, one to one and online.',
   },
   {
     question: 'How do online lessons work?',
@@ -63,7 +63,7 @@ export const pricingFaqs: Faq[] = [
   {
     question: 'How much does tutoring cost?',
     answer:
-      'GCSE tutoring is £40 an hour, A-level tutoring is £45 an hour and Oxbridge, Imperial and medical school interview preparation is £50 an hour, one to one and online.',
+      'GCSE tutoring is £40 an hour and A-level tutoring is £45 an hour, one to one and online.',
   },
   {
     question: 'How long is a lesson?',

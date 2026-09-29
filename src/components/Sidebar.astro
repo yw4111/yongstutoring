@@ -7,6 +7,8 @@ const nav = [
   { href: '/tutors/', label: 'Tutors' },
   { href: '/subjects/', label: 'Subjects' },
   { href: '/pricing/', label: 'Pricing' },
+  { href: '/university-applications/', label: 'Applications' },
+  { href: '/university-applications/efds/', label: 'Imperial EFDS', sub: true },
   { href: '/resources/', label: 'Resources' },
   { href: '/contact/', label: 'Contact' },
 ];
@@ -31,7 +33,7 @@ const { currencySymbol } = business.rates;
     <ul>
       {
         nav.map((item) => (
-          <li>
+          <li class={item.sub ? 'sidebar__sub' : undefined}>
             <a href={withBase(item.href)} aria-current={isCurrent(item.href) ? 'page' : undefined}>
               {item.label}
             </a>
@@ -132,6 +134,13 @@ const { currencySymbol } = business.rates;
     border-bottom-color: var(--petrol);
   }
 
+  /* Course pages nested under a section, e.g. Applications > Imperial EFDS */
+  .sidebar__sub a {
+    font-size: 0.98rem;
+    padding: 0.15rem 0 0.15rem 0.9rem;
+    color: var(--muted);
+  }
+
   .sidebar__foot {
     margin-top: auto;
   }
@@ -192,6 +201,7 @@ const { currencySymbol } = business.rates;
     }
 
     .sidebar__tagline,
+    .sidebar__sub,
     .sidebar__foot {
       display: none;
     }

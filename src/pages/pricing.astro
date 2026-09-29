@@ -44,12 +44,6 @@ const schema = [faqSchema(pricingFaqs), qaPageSchema(pricingFaqs)];
           <p class="price-card__desc">Maths, further maths, economics and the sciences, with exam technique, all exam boards.</p>
           <a class="btn btn--primary" href={withBase('/contact/')}>Book a lesson</a>
         </div>
-        <div class="price-card">
-          <div class="price-card__level">Interview prep</div>
-          <div class="price-card__amt"><span class="price-card__num">{currencySymbol}{business.rates.interview}</span> / hour</div>
-          <p class="price-card__desc">Oxbridge, Imperial and medical school interview preparation, with mock interviews.</p>
-          <a class="btn btn--primary" href={withBase('/contact/')}>Book a session</a>
-        </div>
       </div>
 
       <p class="price-subjects">
@@ -78,7 +72,7 @@ const schema = [faqSchema(pricingFaqs), qaPageSchema(pricingFaqs)];
   .price-cards {
     display: grid;
     gap: var(--gap);
-    max-width: 58rem;
+    max-width: 40rem;
     margin: 0 auto;
   }
 
@@ -86,9 +80,6 @@ const schema = [faqSchema(pricingFaqs), qaPageSchema(pricingFaqs)];
     .price-cards { grid-template-columns: 1fr 1fr; }
   }
 
-  @media (min-width: 52rem) {
-    .price-cards { grid-template-columns: repeat(3, 1fr); }
-  }
 
   .price-card {
     background: var(--white);
